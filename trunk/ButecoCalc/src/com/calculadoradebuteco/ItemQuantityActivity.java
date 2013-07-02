@@ -12,7 +12,7 @@ public class ItemQuantityActivity extends Activity {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_quantity);
-        getActionBar().setDisplayHomeAsUpEnabled(true);
+//        getActionBar().setDisplayHomeAsUpEnabled(true);
     }
 
     @Override
@@ -24,11 +24,11 @@ public class ItemQuantityActivity extends Activity {
     
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        switch (item.getItemId()) {
-            case android.R.id.home:
-                NavUtils.navigateUpFromSameTask(this);
-                return true;
-        }
+//        switch (item.getItemId()) {
+//            case android.R.id.home:
+//                NavUtils.navigateUpFromSameTask(this);
+//                return true;
+//        }
         return super.onOptionsItemSelected(item);
     }
 
