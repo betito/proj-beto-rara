@@ -5,6 +5,7 @@ import java.util.Hashtable;
 
 import android.app.Activity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Menu;
 import android.view.View;
 import android.view.View.OnClickListener;
@@ -29,8 +30,58 @@ public class BuddyActivity extends Activity implements OnClickListener {
 		setContentView(R.layout.activity_buddy);
 
 		if (this.BuddyList_DB == null) {
-			this.BuddyList_DB = new Hashtable<String, Integer>();
+			if (savedInstanceState.containsKey("DB")) {
+				retrieveValues(savedInstanceState.getString("DB"));
+			} else {
+				this.BuddyList_DB = new Hashtable<String, Integer>();
+			}
 		}
+
+	}
+
+	private void retrieveValues(String str) {
+
+		String[] buddy_list = str.split("\n");
+
+		for (int i = 0; i < buddy_list.length; i++) {
+			String[] pair = buddy_list[i].split("\t");
+			this.BuddyList_DB.put(pair[0], Integer.getInteger(pair[1]));
+		}
+
+	}
+
+	@Override
+	protected void onSaveInstanceState(Bundle outState) {
+		super.onSaveInstanceState(outState);
+		Log.i("BUDDY", "on save instance");
+		outState.putString("DB", saveValues("DB"));
+		// outState.putAll();
+
+	}
+
+	@Override
+	protected void onRestoreInstanceState(Bundle savedInstanceState) {
+
+		super.onRestoreInstanceState(savedInstanceState);
+		retrieveValues(savedInstanceState.getString("DB"));
+		Log.i("BUDDY", "on restore instance");
+
+	}
+
+	private String saveValues(String string) {
+		StringBuilder data = new StringBuilder();
+
+		for (Enumeration<String> en = this.BuddyList_DB.keys(); en
+				.hasMoreElements();) {
+
+			String k = en.nextElement();
+			Integer v = this.BuddyList_DB.get(k);
+
+			data.append(k + "\t" + v.toString() + "\n");
+
+		}
+
+		return data.toString();
 
 	}
 
@@ -51,7 +102,7 @@ public class BuddyActivity extends Activity implements OnClickListener {
 
 		buttonSave.setOnClickListener(this);
 		buttonClose.setOnClickListener(this);
-		
+
 		updateDisplayBuddyList();
 
 	}
@@ -87,7 +138,7 @@ public class BuddyActivity extends Activity implements OnClickListener {
 
 			if (name.trim().equals("") == false) {
 				name = name.toUpperCase();
-				this.BuddyList_DB.put(name, new Integer(ID_));
+				this.BuddyList_DB.put(name, Integer.valueOf(ID_));
 				ID_++;
 
 				updateDisplayBuddyList();
@@ -120,7 +171,6 @@ public class BuddyActivity extends Activity implements OnClickListener {
 		}
 
 		buddyList.setText(tmp.toString());
-
 
 	}
 

@@ -37,5 +37,8 @@
     <string name="buddy_button_close">Já!</string>
     <string name="title_activity_quantity">QuantityActivity</string>
     <string name="title_activity_item_per_buddy">ItemPerBuddyActivity</string>
+    
+    <!-- Quantity -->
+    <string name="quantity_text">Quantidade total deste item</string>
 
 </resources>
