@@ -5,18 +5,21 @@
     android:orientation="vertical" >
 
     <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/hello_world"
-        tools:context=".QuantityActivity" />
-
-    <TextView
-        android:id="@+id/item_list"
+        android:id="@+id/quantity_item_name"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/empty_text"
         tools:context=".QuantityActivity" />
 
-     
+    <EditText
+        android:id="@+id/quantity_item_value"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:inputType="numberDecimal"
+        android:hint="@string/quantity_text"
+        android:ems="10" >
+
+        <requestFocus />
+    </EditText>
 
 </LinearLayout>
