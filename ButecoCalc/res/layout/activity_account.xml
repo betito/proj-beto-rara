@@ -46,8 +46,28 @@
             android:layout_height="wrap_content"
             android:layout_marginRight="10dp"
             android:layout_marginLeft="10dp"
-            android:text="@string/account_add_item"
+            android:text="@string/account_check"
             android:layout_weight="1" />
+        <Button
+            android:id="@+id/button_quantity"
+            style="?android:attr/buttonStyleSmall"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="10dp"
+            android:layout_marginLeft="10dp"
+            android:text="@string/account_quantity"
+            android:layout_weight="1" />
+        
+        <Button
+            android:id="@+id/button_item_per_buddy"
+            style="?android:attr/buttonStyleSmall"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="10dp"
+            android:layout_marginLeft="10dp"
+            android:text="@string/account_item_per_buddy"
+            android:layout_weight="1" />
+        
     </LinearLayout>
 
 </LinearLayout>
