@@ -6,7 +6,7 @@
 
     <TextView
         android:id="@+id/quantity_item_name"
-        android:layout_marginLeft="10dp"
+        android:layout_marginLeft="20dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="@string/empty_text"
@@ -15,7 +15,7 @@
 
     <EditText
         android:id="@+id/quantity_item_value"
-        android:layout_marginRight="10dp"
+        android:layout_marginRight="20dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:inputType="numberDecimal"
@@ -25,17 +25,5 @@
 
         <requestFocus />
     </EditText>
-    
-  <!--  <TextView
-        android:id="@+id/quantity_item_price_total"
-        android:layout_marginLeft="10dp"
-        android:layout_marginRight="10dp"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/empty_text"
-        tools:context=".QuantityActivity" 
-        android:layout_weight="3"/>
- 	--> 
- 
- 
+
 </LinearLayout>
