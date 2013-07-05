@@ -30,11 +30,11 @@ public class BuddyActivity extends Activity implements OnClickListener {
 		setContentView(R.layout.activity_buddy);
 
 		if (this.BuddyList_DB == null) {
-			if (savedInstanceState.containsKey("DB")) {
-				retrieveValues(savedInstanceState.getString("DB"));
-			} else {
+//			if (savedInstanceState.containsKey("DB")) {
+//				retrieveValues(savedInstanceState.getString("DB"));
+//			} else {
 				this.BuddyList_DB = new Hashtable<String, Integer>();
-			}
+//			}
 		}
 
 	}
