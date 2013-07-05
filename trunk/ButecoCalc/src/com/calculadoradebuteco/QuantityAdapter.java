@@ -10,7 +10,7 @@ import android.widget.BaseAdapter;
 import android.widget.EditText;
 import android.widget.TextView;
 
-public class QuantityAdapter extends BaseAdapter{
+public class QuantityAdapter extends BaseAdapter {
 
 	private Context context = null;
 	private List<String> ItemList = null;
@@ -52,15 +52,19 @@ public class QuantityAdapter extends BaseAdapter{
 		TextView itemname = (TextView) v.findViewById(R.id.quantity_item_name);
 		itemname.setText(stritem);
 		
+//		TextView itemtotal = (TextView) v.findViewById(R.id.quantity_item_price_total);
+//		itemtotal.setText("R$ ...");
+		
 		EditText edittext = (EditText) v.findViewById(R.id.quantity_item_value);
 		
 		return v;
 	}
 	
 	
-	private class ItemEditBox {
+	/*private class ItemEditBox {
 		TextView textView;
 		EditText editText;
-	}
+		TextView textView;
+	}*/
 
 }
