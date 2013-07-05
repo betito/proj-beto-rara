@@ -16,19 +16,20 @@ public class ItemQuantityActivity extends ListActivity {
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		setContentView(R.layout.activity_quantity);
-		// getActionBar().setDisplayHomeAsUpEnabled(true);
 
 		itemList = new ArrayList<String>();
 		itemList.add("item 1");
 		itemList.add("item 2");
 		itemList.add("item 3");
+		
+		setListAdapter(new QuantityAdapter(this, itemList));
 
 	}
 
 	@Override
 	protected void onListItemClick(ListView l, View v, int position, long id) {
 		super.onListItemClick(l, v, position, id);
+		
 		
 		
 	}
