@@ -16,6 +16,10 @@
     <string name="account_str1">Adicionar dados da conta</string>
     <string name="account_add_buddy">\+ Camarada</string>
     <string name="account_add_item">\+ Item</string>
+    <string name="account_check">Fechar Conta</string>
+    <string name="account_quantity">Quantidade</string>
+    <string name="account_item_per_buddy">Item -> Camarada</string>
+    
 
     <!-- Item -->
     <string name="item_str1">Adicionar um item à conta</string>
@@ -40,5 +44,6 @@
     
     <!-- Quantity -->
     <string name="quantity_text">Quantidade total deste item</string>
+    <string name="quantity_save_values">Salvar</string>
 
 </resources>
