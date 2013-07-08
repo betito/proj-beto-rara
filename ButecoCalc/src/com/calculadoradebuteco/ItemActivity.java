@@ -13,6 +13,9 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.calculadoradebuteco.core.DataItem;
+import com.calculadoradebuteco.model.CalcButeco;
+
 public class ItemActivity extends Activity implements OnClickListener {
 
 	private Button buttonSave = null;
@@ -20,9 +23,9 @@ public class ItemActivity extends Activity implements OnClickListener {
 
 	private EditText ItemName = null;
 	private EditText ItemPrice = null;
+	private EditText ItemQuantity = null;
 	private TextView itemList = null;
-	private Hashtable<String, Integer> ItemList_DB = null;
-	private Hashtable<String, Float> ItemPriceList_DB = null;
+	
 	private int ID_ = 0;
 
 	@Override
@@ -30,9 +33,8 @@ public class ItemActivity extends Activity implements OnClickListener {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_item);
 
-		if (this.ItemList_DB == null) {
-			this.ItemList_DB = new Hashtable<String, Integer>();
-			this.ItemPriceList_DB = new Hashtable<String, Float>();
+		if (CalcButeco.getInstance().getItemListDB() == null) {
+			CalcButeco.getInstance().setItemListDB(new Hashtable<String, DataItem>());
 		}
 
 	}
@@ -51,11 +53,12 @@ public class ItemActivity extends Activity implements OnClickListener {
 		buttonCancel = (Button) findViewById(R.id.button_item_cancel);
 		ItemName = (EditText) findViewById(R.id.edit_item_name);
 		ItemPrice = (EditText) findViewById(R.id.edit_item_price);
+		ItemQuantity = (EditText) findViewById(R.id.edit_item_quant);
 		itemList = (TextView) findViewById(R.id.text_item_list);
 
 		buttonSave.setOnClickListener(this);
 		buttonCancel.setOnClickListener(this);
-		
+
 		updateDisplayItemList();
 
 	}
@@ -70,6 +73,7 @@ public class ItemActivity extends Activity implements OnClickListener {
 			break;
 		case R.id.button_item_cancel:
 			showMsg("Já...");
+			finish();
 			break;
 
 		default:
@@ -82,18 +86,21 @@ public class ItemActivity extends Activity implements OnClickListener {
 
 		String name = this.ItemName.getText().toString();
 		String price = this.ItemPrice.getText().toString();
+		String quant = this.ItemQuantity.getText().toString();
 
-		if (this.ItemList_DB.containsKey(name)) {
+		if (CalcButeco.getInstance().getItemListDB().containsKey(name)) {
 			WarnAlredyExists();
 
 		} else {
 
 			if ((price.trim().equals("") == false)
-					&& (name.trim().equals("") == false)) {
+					&& (name.trim().equals("") == false)
+					&& (quant.trim().equals("") == false)) {
 				name = name.toUpperCase();
-				this.ItemList_DB.put(name, new Integer(ID_));
-				this.ItemPriceList_DB.put(name,
-						new Float(Float.parseFloat(price)));
+				DataItem ditem = new DataItem(ID_, name, price, quant);
+				
+				CalcButeco.getInstance().getItemListDB().put(name, ditem);
+
 				ID_++;
 
 				updateDisplayItemList();
@@ -110,13 +117,15 @@ public class ItemActivity extends Activity implements OnClickListener {
 
 		StringBuilder tmp = new StringBuilder();
 
-		for (Enumeration<String> en = this.ItemList_DB.keys(); en
-				.hasMoreElements();) {
+		for (Enumeration<String> en = CalcButeco.getInstance().getItemListDB().keys(); en.hasMoreElements();) {
+			
 			String name = en.nextElement();
+			DataItem ditem = CalcButeco.getInstance().getItemListDB().get(name);
 
 			tmp.append(name);
-			tmp.append("\t[" + this.ItemPriceList_DB.get(name) + "]");
-			tmp.append("\t[" + this.ItemList_DB.get(name) + "]");
+			tmp.append("\t{" + ditem.getId() + "}");
+			tmp.append("\t[" + ditem.getPrice() + "]");
+			tmp.append("\t[" + ditem.getQuant() + "]");
 			tmp.append("\n");
 		}
 
@@ -134,7 +143,6 @@ public class ItemActivity extends Activity implements OnClickListener {
 
 		Toast.makeText(getApplicationContext(), text, Toast.LENGTH_SHORT)
 				.show();
-
 	}
 
 }

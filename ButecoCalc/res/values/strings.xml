@@ -17,7 +17,6 @@
     <string name="account_add_buddy">\+ Camarada</string>
     <string name="account_add_item">\+ Item</string>
     <string name="account_check">Fechar Conta</string>
-    <string name="account_quantity">Quantidade</string>
     <string name="account_item_per_buddy">Item -> Camarada</string>
     
 
@@ -25,8 +24,10 @@
     <string name="item_str1">Adicionar um item à conta</string>
     <string name="item_name">Item </string>
     <string name="item_price">Preço </string>
+    <string name="item_quantity">Quantidade</string>
     <string name="item_name_hint">Digite o Nome do camarada</string>
     <string name="item_price_hint">Digite o Preço unitário do item</string>
+    <string name="item_quantity_hint">Digite a quantidade deste produto</string>
     <string name="item_button_save">Salvar Item</string>
     <string name="item_button_close">Já</string>
     <string name="title_activity_account">AccountActivity</string>

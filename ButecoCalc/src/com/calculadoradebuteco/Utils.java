@@ -1,5 +1,9 @@
 package com.calculadoradebuteco;
 
+import java.util.Enumeration;
+
+import com.calculadoradebuteco.model.CalcButeco;
+
 import android.content.Context;
 import android.content.Intent;
 
@@ -12,5 +16,28 @@ public class Utils {
 				act);
 		context.startActivity(intent);
 	}
+	
+	
+	public static String updateDisplayBuddyList() {
+
+		StringBuilder tmp = new StringBuilder();
+
+		if (CalcButeco.getInstance().getBuddyList_DB() != null) {
+
+			for (Enumeration<String> en = CalcButeco.getInstance()
+					.getBuddyList_DB().keys(); en.hasMoreElements();) {
+				String name = en.nextElement();
+				int id = CalcButeco.getInstance().getBuddyList_DB().get(name);
+
+				tmp.append(name);
+				tmp.append("\t[" + id + "]");
+				tmp.append("\n");
+			}
+		}
+		
+		return tmp.toString();
+
+	}
+	
 	
 }
