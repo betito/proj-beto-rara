@@ -37,10 +37,13 @@ public class RunCalcularConta {
 		Item.put("batata", new Integer(id++));
 		Item.put("caipirinha", new Integer(id++));
 
-		ItemD.put("cerveja", new DataItem(5, 10));
-		ItemD.put("tropeiro simples", new DataItem(18, 1));
-		ItemD.put("batata", new DataItem(13, 1));
-		ItemD.put("caipirinha", new DataItem(8, 3));
+		ItemD.put("cerveja",
+				new DataItem(Item.get("cerveja"), "cerveja", 5, 10));
+		ItemD.put("tropeiro simples", new DataItem(
+				Item.get("tropeiro simples"), "tropeiro simples", 18, 1));
+		ItemD.put("batata", new DataItem(Item.get("batata"), "batata", 13, 1));
+		ItemD.put("caipirinha", new DataItem(Item.get("caipirinha"),
+				"caipirinha", 8, 3));
 
 		String item = "cerveja";
 
@@ -67,16 +70,16 @@ public class RunCalcularConta {
 
 		CalcularConta cc = new CalcularConta(Buddy, Item, ItemD, Matrix);
 
-//		cc.calculateTotalPerItem();
-//		System.out.println("--------------------");
-//		cc.calculateTotalWithService();
-//		System.out.println("--------------------");
-//		cc.calculateTotalWithoutService();
-//		System.out.println("--------------------");
-//		cc.countAllBuddyPerItem();
-//		System.out.println("--------------------");
-//		cc.calculateIndividualBuddyAccountWithoutService();
-//		System.out.println("--------------------");
+		// cc.calculateTotalPerItem();
+		// System.out.println("--------------------");
+		// cc.calculateTotalWithService();
+		// System.out.println("--------------------");
+		// cc.calculateTotalWithoutService();
+		// System.out.println("--------------------");
+		// cc.countAllBuddyPerItem();
+		// System.out.println("--------------------");
+		// cc.calculateIndividualBuddyAccountWithoutService();
+		// System.out.println("--------------------");
 		cc.calculateIndividualBuddyAccountWithService();
 
 	}

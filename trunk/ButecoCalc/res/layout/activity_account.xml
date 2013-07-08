@@ -1,4 +1,3 @@
-
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -6,6 +5,7 @@
     android:orientation="vertical" >
 
     <TextView
+        android:id="@+id/account_label"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/hello_world"
@@ -16,58 +16,40 @@
         xmlns:tools="http://schemas.android.com/tools"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:gravity="center_horizontal"
-        android:orientation="horizontal" >
+        android:gravity="center"
+        android:orientation="vertical" >
 
         <Button
             android:id="@+id/button_buddy"
             style="?android:attr/buttonStyleSmall"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginRight="10dp"
-            android:layout_marginLeft="10dp"
-            android:text="@string/account_add_buddy" 
-            android:layout_weight="1"/>
+            android:layout_margin = "10dp"
+            android:text="@string/account_add_buddy" />
 
         <Button
             android:id="@+id/button_item"
             style="?android:attr/buttonStyleSmall"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginRight="10dp"
-            android:layout_marginLeft="10dp"
-            android:text="@string/account_add_item"
-            android:layout_weight="1" />
-        
-        <Button
-            android:id="@+id/button_check"
-            style="?android:attr/buttonStyleSmall"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginRight="10dp"
-            android:layout_marginLeft="10dp"
-            android:text="@string/account_check"
-            android:layout_weight="1" />
-        <Button
-            android:id="@+id/button_quantity"
-            style="?android:attr/buttonStyleSmall"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginRight="10dp"
-            android:layout_marginLeft="10dp"
-            android:text="@string/account_quantity"
-            android:layout_weight="1" />
-        
+            android:layout_margin = "10dp"
+            android:text="@string/account_add_item" />
+
         <Button
             android:id="@+id/button_item_per_buddy"
             style="?android:attr/buttonStyleSmall"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginRight="10dp"
-            android:layout_marginLeft="10dp"
-            android:text="@string/account_item_per_buddy"
-            android:layout_weight="1" />
-        
+            android:layout_margin = "10dp"
+            android:text="@string/account_item_per_buddy" />
+
+        <Button
+            android:id="@+id/button_check"
+            style="?android:attr/buttonStyleSmall"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin = "10dp"
+            android:text="@string/account_check" />
     </LinearLayout>
 
 </LinearLayout>

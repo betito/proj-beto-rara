@@ -14,6 +14,8 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.calculadoradebuteco.model.CalcButeco;
+
 public class BuddyActivity extends Activity implements OnClickListener {
 
 	private Button buttonSave = null;
@@ -29,12 +31,9 @@ public class BuddyActivity extends Activity implements OnClickListener {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_buddy);
 
-		if (this.BuddyList_DB == null) {
-//			if (savedInstanceState.containsKey("DB")) {
-//				retrieveValues(savedInstanceState.getString("DB"));
-//			} else {
-				this.BuddyList_DB = new Hashtable<String, Integer>();
-//			}
+		if (CalcButeco.getInstance().getBuddyList_DB() == null) {
+			CalcButeco.getInstance().setBuddyList_DB(
+					new Hashtable<String, Integer>());
 		}
 
 	}
@@ -45,7 +44,8 @@ public class BuddyActivity extends Activity implements OnClickListener {
 
 		for (int i = 0; i < buddy_list.length; i++) {
 			String[] pair = buddy_list[i].split("\t");
-			this.BuddyList_DB.put(pair[0], Integer.getInteger(pair[1]));
+			CalcButeco.getInstance().getBuddyList_DB()
+					.put(pair[0], Integer.getInteger(pair[1]));
 		}
 
 	}
@@ -54,7 +54,7 @@ public class BuddyActivity extends Activity implements OnClickListener {
 	protected void onSaveInstanceState(Bundle outState) {
 		super.onSaveInstanceState(outState);
 		Log.i("BUDDY", "on save instance");
-		outState.putString("DB", saveValues("DB"));
+//		outState.putString("DB", saveValues("DB"));
 		// outState.putAll();
 
 	}
@@ -63,7 +63,7 @@ public class BuddyActivity extends Activity implements OnClickListener {
 	protected void onRestoreInstanceState(Bundle savedInstanceState) {
 
 		super.onRestoreInstanceState(savedInstanceState);
-		retrieveValues(savedInstanceState.getString("DB"));
+//		retrieveValues(savedInstanceState.getString("DB"));
 		Log.i("BUDDY", "on restore instance");
 
 	}
@@ -71,8 +71,8 @@ public class BuddyActivity extends Activity implements OnClickListener {
 	private String saveValues(String string) {
 		StringBuilder data = new StringBuilder();
 
-		for (Enumeration<String> en = this.BuddyList_DB.keys(); en
-				.hasMoreElements();) {
+		for (Enumeration<String> en = CalcButeco.getInstance()
+				.getBuddyList_DB().keys(); en.hasMoreElements();) {
 
 			String k = en.nextElement();
 			Integer v = this.BuddyList_DB.get(k);
@@ -131,14 +131,15 @@ public class BuddyActivity extends Activity implements OnClickListener {
 
 		String name = this.buddyName.getText().toString();
 
-		if (this.BuddyList_DB.containsKey(name)) {
+		if (CalcButeco.getInstance().getBuddyList_DB().containsKey(name)) {
 			WarnAlredyExists();
 
 		} else {
 
 			if (name.trim().equals("") == false) {
 				name = name.toUpperCase();
-				this.BuddyList_DB.put(name, Integer.valueOf(ID_));
+				CalcButeco.getInstance().getBuddyList_DB()
+						.put(name, Integer.valueOf(ID_));
 				ID_++;
 
 				updateDisplayBuddyList();
@@ -161,16 +162,20 @@ public class BuddyActivity extends Activity implements OnClickListener {
 
 		StringBuilder tmp = new StringBuilder();
 
-		for (Enumeration<String> en = this.BuddyList_DB.keys(); en
-				.hasMoreElements();) {
-			String name = en.nextElement();
+		if (CalcButeco.getInstance().getBuddyList_DB() != null) {
 
-			tmp.append(name);
-			tmp.append("\t[" + this.BuddyList_DB.get(name) + "]");
-			tmp.append("\n");
+			for (Enumeration<String> en = CalcButeco.getInstance()
+					.getBuddyList_DB().keys(); en.hasMoreElements();) {
+				String name = en.nextElement();
+				int id = CalcButeco.getInstance().getBuddyList_DB().get(name);
+
+				tmp.append(name);
+				tmp.append("\t[" + id + "]");
+				tmp.append("\n");
+			}
+
+			buddyList.setText(tmp.toString());
 		}
-
-		buddyList.setText(tmp.toString());
 
 	}
 
