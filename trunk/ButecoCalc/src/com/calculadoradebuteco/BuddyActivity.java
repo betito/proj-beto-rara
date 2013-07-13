@@ -5,7 +5,6 @@ import java.util.Hashtable;
 
 import android.app.Activity;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.Menu;
 import android.view.View;
 import android.view.View.OnClickListener;
@@ -38,53 +37,6 @@ public class BuddyActivity extends Activity implements OnClickListener {
 
 	}
 
-	private void retrieveValues(String str) {
-
-		String[] buddy_list = str.split("\n");
-
-		for (int i = 0; i < buddy_list.length; i++) {
-			String[] pair = buddy_list[i].split("\t");
-			CalcButeco.getInstance().getBuddyList_DB()
-					.put(pair[0], Integer.getInteger(pair[1]));
-		}
-
-	}
-
-	@Override
-	protected void onSaveInstanceState(Bundle outState) {
-		super.onSaveInstanceState(outState);
-		Log.i("BUDDY", "on save instance");
-//		outState.putString("DB", saveValues("DB"));
-		// outState.putAll();
-
-	}
-
-	@Override
-	protected void onRestoreInstanceState(Bundle savedInstanceState) {
-
-		super.onRestoreInstanceState(savedInstanceState);
-//		retrieveValues(savedInstanceState.getString("DB"));
-		Log.i("BUDDY", "on restore instance");
-
-	}
-
-	private String saveValues(String string) {
-		StringBuilder data = new StringBuilder();
-
-		for (Enumeration<String> en = CalcButeco.getInstance()
-				.getBuddyList_DB().keys(); en.hasMoreElements();) {
-
-			String k = en.nextElement();
-			Integer v = this.BuddyList_DB.get(k);
-
-			data.append(k + "\t" + v.toString() + "\n");
-
-		}
-
-		return data.toString();
-
-	}
-
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {
 		getMenuInflater().inflate(R.menu.activity_buddy, menu);
@@ -114,6 +66,7 @@ public class BuddyActivity extends Activity implements OnClickListener {
 		case R.id.button_buddy_save:
 			showMsg("Salvar...");
 			writeBuddyInList();
+			ClearFields();
 			break;
 
 		case R.id.button_buddy_close:
@@ -124,6 +77,13 @@ public class BuddyActivity extends Activity implements OnClickListener {
 		default:
 			break;
 		}
+
+	}
+
+	private void ClearFields() {
+
+		buddyName.setText("");
+		buddyName.requestFocus();
 
 	}
 
@@ -138,9 +98,10 @@ public class BuddyActivity extends Activity implements OnClickListener {
 
 			if (name.trim().equals("") == false) {
 				name = name.toUpperCase();
+				ID_ = CalcButeco.getInstance().getBUDDY_ID_COUNT();
 				CalcButeco.getInstance().getBuddyList_DB()
 						.put(name, Integer.valueOf(ID_));
-				ID_++;
+				CalcButeco.getInstance().inc_BUDDY_ID_COUNT();
 
 				updateDisplayBuddyList();
 

@@ -25,7 +25,7 @@ public class ItemActivity extends Activity implements OnClickListener {
 	private EditText ItemPrice = null;
 	private EditText ItemQuantity = null;
 	private TextView itemList = null;
-	
+
 	private int ID_ = 0;
 
 	@Override
@@ -34,7 +34,8 @@ public class ItemActivity extends Activity implements OnClickListener {
 		setContentView(R.layout.activity_item);
 
 		if (CalcButeco.getInstance().getItemListDB() == null) {
-			CalcButeco.getInstance().setItemListDB(new Hashtable<String, DataItem>());
+			CalcButeco.getInstance().setItemListDB(
+					new Hashtable<String, DataItem>());
 		}
 
 	}
@@ -70,6 +71,7 @@ public class ItemActivity extends Activity implements OnClickListener {
 		case R.id.button_item_save:
 			showMsg("Salvar...");
 			writeBuddyInList();
+			ClearData();
 			break;
 		case R.id.button_item_cancel:
 			showMsg("Já...");
@@ -79,6 +81,15 @@ public class ItemActivity extends Activity implements OnClickListener {
 		default:
 			break;
 		}
+
+	}
+
+	private void ClearData() {
+
+		ItemName.setText("");
+		ItemPrice.setText("");
+		ItemQuantity.setText("");
+		ItemName.requestFocus();
 
 	}
 
@@ -97,11 +108,12 @@ public class ItemActivity extends Activity implements OnClickListener {
 					&& (name.trim().equals("") == false)
 					&& (quant.trim().equals("") == false)) {
 				name = name.toUpperCase();
+				ID_ = CalcButeco.getInstance().getITEM_ID_COUNT();
 				DataItem ditem = new DataItem(ID_, name, price, quant);
-				
+
 				CalcButeco.getInstance().getItemListDB().put(name, ditem);
 
-				ID_++;
+				CalcButeco.getInstance().inc_ITEM_ID_COUNT();
 
 				updateDisplayItemList();
 
@@ -117,8 +129,9 @@ public class ItemActivity extends Activity implements OnClickListener {
 
 		StringBuilder tmp = new StringBuilder();
 
-		for (Enumeration<String> en = CalcButeco.getInstance().getItemListDB().keys(); en.hasMoreElements();) {
-			
+		for (Enumeration<String> en = CalcButeco.getInstance().getItemListDB()
+				.keys(); en.hasMoreElements();) {
+
 			String name = en.nextElement();
 			DataItem ditem = CalcButeco.getInstance().getItemListDB().get(name);
 
