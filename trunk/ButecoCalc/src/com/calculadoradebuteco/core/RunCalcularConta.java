@@ -2,6 +2,8 @@ package com.calculadoradebuteco.core;
 
 import java.util.Hashtable;
 
+import com.calculadoradebuteco.model.CalcButeco;
+
 public class RunCalcularConta {
 
 	/**
@@ -15,12 +17,8 @@ public class RunCalcularConta {
 		int Matrix[][] = new int[10][10];
 		int X_ = 1;
 
-		for (int x = 0; x < Item.size(); x++) {
-			for (int y = 0; y < Buddy.size(); y++) {
-				Matrix[x][y] = 0;
-			}
-		}
-
+		CalcButeco.getInstance().setMatrix();
+		
 		int id = 0;
 		Buddy.put("A", new Integer(id++));
 		Buddy.put("B", new Integer(id++));
