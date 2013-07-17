@@ -22,7 +22,6 @@ public class BuddyActivity extends Activity implements OnClickListener {
 	private EditText buddyName = null;
 	private TextView buddyList = null;
 
-	private Hashtable<String, Integer> BuddyList_DB = null;
 	private int ID_ = 0;
 
 	@Override

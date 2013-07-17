@@ -36,6 +36,8 @@ public class ItemActivity extends Activity implements OnClickListener {
 		if (CalcButeco.getInstance().getItemListDB() == null) {
 			CalcButeco.getInstance().setItemListDB(
 					new Hashtable<String, DataItem>());
+			CalcButeco.getInstance().setItemIDs(
+					new Hashtable<String, Integer>());
 		}
 
 	}
@@ -112,6 +114,7 @@ public class ItemActivity extends Activity implements OnClickListener {
 				DataItem ditem = new DataItem(ID_, name, price, quant);
 
 				CalcButeco.getInstance().getItemListDB().put(name, ditem);
+				CalcButeco.getInstance().getItemIDs().put(name, Integer. valueOf(ID_));
 
 				CalcButeco.getInstance().inc_ITEM_ID_COUNT();
 

@@ -1,10 +1,12 @@
 package com.calculadoradebuteco;
 
 import java.util.Enumeration;
+import java.util.Hashtable;
 
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Menu;
 import android.view.View;
 import android.view.View.OnClickListener;
@@ -21,12 +23,14 @@ public class AccountActivity extends Activity implements OnClickListener {
 	private Button buttonAddBuddy = null;
 	private Button buttonCheck = null;
 	private Button buttonItemPerBuddy = null;
+	private Button buttonAbout = null;
 	private TextView label = null;
 
 	private StringBuilder itemList = null;
 
 	private final int ITEM_ACT_RES_CODE_1 = 0x01;
 	private final int ITEM_ACT_RES_CODE_2 = 0x02;
+	private final int ITEM_ACT_RES_CODE_3 = 0x03;
 
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
@@ -41,21 +45,23 @@ public class AccountActivity extends Activity implements OnClickListener {
 
 		buttonAddItem = (Button) findViewById(R.id.button_item);
 		buttonAddBuddy = (Button) findViewById(R.id.button_buddy);
-		buttonCheck = (Button) findViewById(R.id.button_check);
 		buttonItemPerBuddy = (Button) findViewById(R.id.button_item_per_buddy);
+		buttonCheck = (Button) findViewById(R.id.button_check);
+		buttonAbout = (Button) findViewById(R.id.button_about);
 		label = (TextView) findViewById(R.id.account_label);
 
 		buttonAddItem.setOnClickListener(this);
 		buttonAddBuddy.setOnClickListener(this);
-		buttonCheck.setOnClickListener(this);
 		buttonItemPerBuddy.setOnClickListener(this);
+		buttonCheck.setOnClickListener(this);
+		buttonAbout.setOnClickListener(this);
 
 		if (itemList == null) {
 
 			itemList = new StringBuilder();
 
 		}
-		
+
 		updateAccountList();
 
 	}
@@ -81,26 +87,45 @@ public class AccountActivity extends Activity implements OnClickListener {
 		case R.id.button_item_per_buddy:
 			openItemPerBuddyActivity();
 			break;
+		case R.id.button_check:
+			showCheck();
+			break;
+		case R.id.button_about:
+			openAboutActivity();
+			break;
 		}
 	}
 
-	private void openItemPerBuddyActivity() {
-
-		Intent intent = new Intent(getApplicationContext(),
-				ItemPerBuddyActivity.class);
+	private void openAboutActivity() {
+		Intent intent = new Intent(getApplicationContext(), AboutActivity.class);
 		startActivity(intent);
 
 	}
 
+	private void openItemPerBuddyActivity() {
+
+		if ((CalcButeco.getInstance().getItemListDB() != null)
+				&& (CalcButeco.getInstance().getBuddyList_DB() != null)) {
+
+			Intent intent = new Intent(getApplicationContext(),
+					ItemPerBuddyActivity.class);
+			startActivityForResult(intent, ITEM_ACT_RES_CODE_3);
+		} else {
+			Toast.makeText(
+					getApplicationContext(),
+					"Faltam dados.\n… preciso inserir os Camaradas e os Itens ;)!!",
+					Toast.LENGTH_LONG).show();
+		}
+
+	}
+
 	private void openBuddyActivity() {
-		// TODO Auto-generated method stub
 		Intent intent = new Intent(getApplicationContext(), BuddyActivity.class);
 		startActivityForResult(intent, ITEM_ACT_RES_CODE_1);
 
 	}
 
 	private void openItemActivity() {
-		// TODO Auto-generated method stub
 		Intent intent = new Intent(getApplicationContext(), ItemActivity.class);
 		startActivityForResult(intent, ITEM_ACT_RES_CODE_2);
 
@@ -163,6 +188,39 @@ public class AccountActivity extends Activity implements OnClickListener {
 	private void updateAccountList() {
 		updateDisplayBuddyList();
 		updateDisplayItemList();
+	}
+
+	private void showCheck() {
+
+		Hashtable<String, Integer> buddyList_DB = null;
+		Hashtable<String, Integer> ItemIDs = null;
+
+		if (CalcButeco.getInstance().getMatrix() != null) {
+			int matrix[][] = CalcButeco.getInstance().getMatrix();
+			ItemIDs = CalcButeco.getInstance().getItemIDs();
+			buddyList_DB = CalcButeco.getInstance().getBuddyList_DB();
+
+			for (Enumeration<String> eni = ItemIDs.keys(); eni
+					.hasMoreElements();) {
+				String itemstr = eni.nextElement();
+				int i = ItemIDs.get(itemstr);
+				Log.i("SHOW EXT", itemstr);
+				for (Enumeration<String> enj = buddyList_DB.keys(); enj
+						.hasMoreElements();) {
+					String buddystr = enj.nextElement();
+					int j = buddyList_DB.get(buddystr);
+
+					int v = matrix[i][j];
+					// TODO ... fazer um display com os buddies e itens para
+					// checar se ta certinho.
+
+					Log.i("SHOW INT", "\t" + buddystr + " = " + v);
+
+				}
+			}
+
+		}
+
 	}
 
 }
