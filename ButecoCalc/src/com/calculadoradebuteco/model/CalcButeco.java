@@ -6,8 +6,9 @@ import com.calculadoradebuteco.core.DataItem;
 
 public class CalcButeco {
 
-	private Hashtable<String, DataItem> itemListDB = null;
+	private Hashtable<String, DataItem> itemList_DB = null;
 	private Hashtable<String, Integer> buddyList_DB = null;
+	private Hashtable<String, Integer> ItemIDs = null;
 	private int Matrix[][] = null;
 	private int BUDDY_ID_COUNT = 0;
 	private int ITEM_ID_COUNT = 0;
@@ -23,12 +24,20 @@ public class CalcButeco {
 		return instance;
 	}
 
+	public Hashtable<String, Integer> getItemIDs() {
+		return ItemIDs;
+	}
+
+	public void setItemIDs(Hashtable<String, Integer> itemIDs) {
+		ItemIDs = itemIDs;
+	}
+
 	public Hashtable<String, DataItem> getItemListDB() {
-		return itemListDB;
+		return itemList_DB;
 	}
 
 	public void setItemListDB(Hashtable<String, DataItem> itemListDB) {
-		this.itemListDB = itemListDB;
+		this.itemList_DB = itemListDB;
 	}
 
 	public Hashtable<String, Integer> getBuddyList_DB() {
@@ -80,6 +89,18 @@ public class CalcButeco {
 				}
 			}
 		}
+	}
+
+	public void checkMatrix(int posItem, int posBuddy) {
+
+		this.Matrix[posItem][posBuddy] = 1;
+
+	}
+
+	public void uncheckMatrix(int posItem, int posBuddy) {
+
+		this.Matrix[posItem][posBuddy] = 0;
+
 	}
 
 }

@@ -50,6 +50,15 @@
             android:layout_height="wrap_content"
             android:layout_margin = "10dp"
             android:text="@string/account_check" />
+        
+        <Button
+            android:id="@+id/button_about"
+            style="?android:attr/buttonStyleSmall"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin = "10dp"
+            android:text="@string/account_about" />
+        
     </LinearLayout>
 
 </LinearLayout>

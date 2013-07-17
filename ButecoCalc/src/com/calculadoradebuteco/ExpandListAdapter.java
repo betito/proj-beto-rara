@@ -1,22 +1,31 @@
 package com.calculadoradebuteco;
 
 import java.util.ArrayList;
+import java.util.Hashtable;
 
 import android.content.Context;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
+import android.view.View.OnClickListener;
 import android.view.ViewGroup;
 import android.widget.BaseExpandableListAdapter;
+import android.widget.CheckBox;
 import android.widget.TextView;
 
-public class ExpandListAdapter extends BaseExpandableListAdapter {
+public class ExpandListAdapter extends BaseExpandableListAdapter implements
+		OnClickListener {
 
 	private Context context;
 	private ArrayList<ExpandListGroup> groups;
+	private Hashtable<String, String> checkedItems = null;
 
 	public ExpandListAdapter(Context context, ArrayList<ExpandListGroup> groups) {
 		this.context = context;
 		this.groups = groups;
+
+		this.checkedItems = new Hashtable<String, String>(20);
+
 	}
 
 	public void addItem(ExpandListChild item, ExpandListGroup group) {
@@ -51,10 +60,20 @@ public class ExpandListAdapter extends BaseExpandableListAdapter {
 			view = infalInflater.inflate(R.layout.adapter_item_buddy_child,
 					null);
 		}
-		TextView tv = (TextView) view.findViewById(R.id.item_child_text);
+
+		CheckBox tv = (CheckBox) view.findViewById(R.id.item_child_check);
+
+		ExpandListGroup p = (ExpandListGroup) getGroup(groupPosition);
+		String value = p.getName() + "::" + child.getName().toString();
+		this.checkedItems.put(value, "");
+
 		tv.setText(child.getName().toString());
-		tv.setTag(child.getTag());
-		// TODO Auto-generated method stub
+		tv.setTag(value);
+		tv.setOnClickListener(this);
+
+		Log.i("ChildView", "= " + p.getName() + "::"
+				+ child.getName().toString());
+
 		return view;
 	}
 
@@ -68,17 +87,14 @@ public class ExpandListAdapter extends BaseExpandableListAdapter {
 	}
 
 	public Object getGroup(int groupPosition) {
-		// TODO Auto-generated method stub
 		return groups.get(groupPosition);
 	}
 
 	public int getGroupCount() {
-		// TODO Auto-generated method stub
 		return groups.size();
 	}
 
 	public long getGroupId(int groupPosition) {
-		// TODO Auto-generated method stub
 		return groupPosition;
 	}
 
@@ -89,21 +105,45 @@ public class ExpandListAdapter extends BaseExpandableListAdapter {
 			LayoutInflater inf = (LayoutInflater) context
 					.getSystemService(context.LAYOUT_INFLATER_SERVICE);
 			view = inf.inflate(R.layout.adapter_item_buddy_parent, null);
-		}	
+		}
 		TextView tv = (TextView) view.findViewById(R.id.item_text_group);
 		tv.setText(group.getName());
-		// TODO Auto-generated method stub
+
 		return view;
 	}
 
 	public boolean hasStableIds() {
-		// TODO Auto-generated method stub
 		return true;
 	}
 
 	public boolean isChildSelectable(int arg0, int arg1) {
-		// TODO Auto-generated method stub
 		return true;
+	}
+
+	@Override
+	public void onClick(View arg0) {
+
+		CheckBox cb = (CheckBox) arg0;
+		String value = (String) cb.getTag();
+
+		if (cb.isChecked()) {
+
+			Log.i("ADAPTER", "" + value);
+			this.checkedItems.put(value, value);
+
+		} else {
+			Log.i("ADAPTER", "vazio");
+			this.checkedItems.put(value, "");
+		}
+
+	}
+
+	public Hashtable<String, String> getCheckedItems() {
+		return checkedItems;
+	}
+
+	public void setCheckedItems(Hashtable<String, String> checkedItems) {
+		this.checkedItems = checkedItems;
 	}
 
 }
