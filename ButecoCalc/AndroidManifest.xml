@@ -46,18 +46,18 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".ItemQuantityActivity"
-            android:label="@string/title_activity_quantity" >
-            <meta-data
-                android:name="android.support.PARENT_ACTIVITY"
-                android:value="com.calculadoradebuteco.AccountActivity" />
-        </activity>
-        <activity
             android:name=".ItemPerBuddyActivity"
             android:label="@string/title_activity_item_per_buddy" >
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.calculadoradebuteco.AccountActivity" />
+        </activity>
+        <activity
+            android:name=".AboutActivity"
+            android:label="@string/title_activity_about" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="android.accounts.AccountAuthenticatorActivity" />
         </activity>
     </application>
 
