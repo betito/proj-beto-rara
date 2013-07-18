@@ -189,7 +189,6 @@ public class AccountActivity extends Activity implements OnClickListener {
 	private void updateAccountList() {
 		updateDisplayBuddyList();
 		updateDisplayItemList();
-		showCheck();
 	}
 
 	private void showCheck() {
@@ -225,7 +224,9 @@ public class AccountActivity extends Activity implements OnClickListener {
 
 			}
 
-			label.setText("\n\n\nValor justo COM 10% \n==================\n"
+			updateAccountList();
+			
+			label.setText(label.getText() + "\n\n\nValor justo COM 10% \n==================\n"
 					+ output.toString());
 
 		}
