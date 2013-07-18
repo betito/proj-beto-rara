@@ -14,6 +14,7 @@ import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.calculadoradebuteco.core.CalcularConta;
 import com.calculadoradebuteco.core.DataItem;
 import com.calculadoradebuteco.model.CalcButeco;
 
@@ -188,39 +189,46 @@ public class AccountActivity extends Activity implements OnClickListener {
 	private void updateAccountList() {
 		updateDisplayBuddyList();
 		updateDisplayItemList();
+		showCheck();
 	}
 
 	private void showCheck() {
 
 		Hashtable<String, Integer> buddyList_DB = null;
 		Hashtable<String, Integer> ItemIDs = null;
+		Hashtable<String, DataItem> itemList_DB = null;
+		Hashtable<String, Float> BuddyMoney = null;
+		StringBuilder output = null;
 
 		if (CalcButeco.getInstance().getMatrix() != null) {
+			Log.i("MATRIX", "OK");
 			int matrix[][] = CalcButeco.getInstance().getMatrix();
 			ItemIDs = CalcButeco.getInstance().getItemIDs();
 			buddyList_DB = CalcButeco.getInstance().getBuddyList_DB();
+			itemList_DB = CalcButeco.getInstance().getItemListDB();
 
-			for (Enumeration<String> eni = ItemIDs.keys(); eni
+			CalcularConta cc = new CalcularConta(buddyList_DB, ItemIDs,
+					itemList_DB, matrix);
+
+			BuddyMoney = cc.calculateIndividualBuddyAccountWithService();
+
+			output = new StringBuilder();
+			output.append("\n");
+
+			for (Enumeration<String> enj = buddyList_DB.keys(); enj
 					.hasMoreElements();) {
-				String itemstr = eni.nextElement();
-				int i = ItemIDs.get(itemstr);
-				Log.i("SHOW EXT", itemstr);
-				for (Enumeration<String> enj = buddyList_DB.keys(); enj
-						.hasMoreElements();) {
-					String buddystr = enj.nextElement();
-					int j = buddyList_DB.get(buddystr);
 
-					int v = matrix[i][j];
-					// TODO ... fazer um display com os buddies e itens para
-					// checar se ta certinho.
+				String buddystr = enj.nextElement();
+				Float val = BuddyMoney.get(buddystr);
 
-					Log.i("SHOW INT", "\t" + buddystr + " = " + v);
+				output.append(buddystr + " = " + val.toString() + "\n");
 
-				}
 			}
+
+			label.setText("\n\n\nValor justo COM 10% \n==================\n"
+					+ output.toString());
 
 		}
 
 	}
-
 }

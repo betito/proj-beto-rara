@@ -13,7 +13,8 @@
         android:theme="@style/AppTheme" >
         <activity
             android:name=".MainActivity"
-            android:label="@string/app_name" >
+            android:label="@string/app_name"
+            android:screenOrientation="portrait" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -22,14 +23,16 @@
         </activity>
         <activity
             android:name=".AccountActivity"
-            android:label="@string/app_name" >
+            android:label="@string/app_name" 
+            android:screenOrientation="portrait">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.calculadoradebuteco.MainActivity" />
         </activity>
         <activity
             android:name=".ItemActivity"
-            android:label="@string/app_name" >
+            android:label="@string/app_name" 
+            android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -38,7 +41,8 @@
         </activity>
         <activity
             android:name=".BuddyActivity"
-            android:label="@string/title_activity_buddy" >
+            android:label="@string/title_activity_buddy" 
+            android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -47,14 +51,16 @@
         </activity>
         <activity
             android:name=".ItemPerBuddyActivity"
-            android:label="@string/title_activity_item_per_buddy" >
+            android:label="@string/title_activity_item_per_buddy" 
+            android:screenOrientation="portrait">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.calculadoradebuteco.AccountActivity" />
         </activity>
         <activity
             android:name=".AboutActivity"
-            android:label="@string/title_activity_about" >
+            android:label="@string/title_activity_about" 
+            android:screenOrientation="portrait">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="android.accounts.AccountAuthenticatorActivity" />

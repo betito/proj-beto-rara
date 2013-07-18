@@ -1,7 +1,7 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_height="wrap_content"
     android:layout_gravity="center"
     android:layout_marginLeft="10dp"
     android:layout_marginRight="10dp"
@@ -13,29 +13,51 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:contentDescription="@string/empty_text"
-        android:src="@drawable/ic_launcher"
-         />
+        android:src="@drawable/ic_launcher" />
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/about"
-        tools:context=".AboutActivity" 
-        android:textSize="12dp"/>
+    <ScrollView
+        android:id="@+id/scrollView1"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent" >
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
-        android:text="@string/deposito"
-        tools:context=".AboutActivity" 
-        android:textSize="12dp"/>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:gravity="center_horizontal|top"
+            android:orientation="vertical" >
 
-    <Button
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/about"
+                android:textSize="12dp"
+                tools:context=".AboutActivity" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:text="@string/deposito"
+                android:textSize="12dp"
+                tools:context=".AboutActivity" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:text="@string/developers"
+                android:textSize="12dp"
+                tools:context=".AboutActivity" />
+
+        </LinearLayout>
+    </ScrollView><Button
         android:id="@+id/about_btn_close"
-        android:layout_margin="20dp"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
+        android:layout_margin="20dp"
         android:text="@string/item_button_close" />
 
 </LinearLayout>
