@@ -1,64 +1,69 @@
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:orientation="vertical" >
-
-    <TextView
-        android:id="@+id/account_label"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/account_str1"
-        tools:context=".AccountActivity" />
+    android:id="@+id/scrollView1"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent" >
 
     <LinearLayout
-        xmlns:android="http://schemas.android.com/apk/res/android"
-        xmlns:tools="http://schemas.android.com/tools"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:gravity="center"
         android:orientation="vertical" >
 
-        <Button
-            android:id="@+id/button_buddy"
-            style="?android:attr/buttonStyleSmall"
-            android:layout_width="match_parent"
+        <TextView
+            android:id="@+id/account_label"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_margin = "10dp"
-            android:text="@string/account_add_buddy" />
+            android:text="@string/account_str1"
+            tools:context=".AccountActivity" />
 
-        <Button
-            android:id="@+id/button_item"
-            style="?android:attr/buttonStyleSmall"
+        <LinearLayout
+            xmlns:android="http://schemas.android.com/apk/res/android"
+            xmlns:tools="http://schemas.android.com/tools"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_margin = "10dp"
-            android:text="@string/account_add_item" />
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:orientation="vertical" >
 
-        <Button
-            android:id="@+id/button_item_per_buddy"
-            style="?android:attr/buttonStyleSmall"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_margin = "10dp"
-            android:text="@string/account_item_per_buddy" />
+            <Button
+                android:id="@+id/button_buddy"
+                style="?android:attr/buttonStyleSmall"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:text="@string/account_add_buddy" />
 
-        <Button
-            android:id="@+id/button_check"
-            style="?android:attr/buttonStyleSmall"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_margin = "10dp"
-            android:text="@string/account_check" />
-        
-        <Button
-            android:id="@+id/button_about"
-            style="?android:attr/buttonStyleSmall"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_margin = "10dp"
-            android:text="@string/account_about" />
-        
+            <Button
+                android:id="@+id/button_item"
+                style="?android:attr/buttonStyleSmall"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:text="@string/account_add_item" />
+
+            <Button
+                android:id="@+id/button_item_per_buddy"
+                style="?android:attr/buttonStyleSmall"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:text="@string/account_item_per_buddy" />
+
+            <Button
+                android:id="@+id/button_check"
+                style="?android:attr/buttonStyleSmall"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:text="@string/account_check" />
+
+            <Button
+                android:id="@+id/button_about"
+                style="?android:attr/buttonStyleSmall"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:text="@string/account_about" />
+        </LinearLayout>
     </LinearLayout>
 
-</LinearLayout>
+</ScrollView>
