@@ -75,6 +75,12 @@ public class CalcButeco {
 	public int[][] getMatrix() {
 		return Matrix;
 	}
+	
+	public int getMatrixData(String lin, String col) {
+		int l = ((Integer)(this.ItemIDs.get(lin)).intValue());
+		int c = ((Integer)(this.buddyList_DB.get(col)).intValue());
+		return Matrix[l][c];
+	}
 
 	public void setMatrix() {
 
@@ -104,3 +110,4 @@ public class CalcButeco {
 	}
 
 }
+

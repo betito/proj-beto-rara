@@ -49,21 +49,26 @@ com as pessoas que gostam de uma reunião entre amigos em uma mesa de buteco, re
 na maioria das vezes, é rachada e sempre tem alguém que "se dá bem" e outros que "se dão mal".
 \n
 Pensamos que a conta deve ser justa, cada um deve pagar ou dividir apenas aquilo que consumiu. E para isso, fizemos
-essa app. ;-)</string>
-    <string name="deposito">Se você quer uma versão mais bonita dessa APP, dá uma força financeira para nós e aí a gente continua o trabalho. Você sabe o que
+essa app. ;-)\n
+Se você quer uma versão mais bonita dessa APP, dá uma força financeira para nós e aí a gente continua o trabalho. Você sabe o que
 	significa R$ 1,00 no seu dia a dia? Pois é! É muito! E para nós também vale muito. Assim,
 	Ajude a dignificar nosso esforço e, se você se solidarizar, é só doar essa quantia que a gente aceita.
 	Clica aqui e manda um email que te enviaremos os dados do PagSeguro e PayPal. Se você não doar, não iremos travar sua aplicação nem
 	impedir que você não a use mais, muito pelo contrário, queremos que você use e mostre para nós que fizemos algo útil pro
 	dia a dia das pessoas. Pode clicar aqui para enviar o seu Curti com relação a nossa app.</string>
-    <string name="developers">Desenvolvedores:\n\nBetito Oliveira+, Marcelo Vitor Oliveira* e Raoni Novellino*.\n\n
-        *: Referências.\n
-        +: Orelha.</string>
+    <string name="developers">
+Desenvolvedores:\n
+     Raoni Novellino\n
+     Roberto Oliveira\n\n
+Desiner de UX/UI:\n
+     Marcelo Vitor Oliveira
+        </string>
 
     <!-- Quantity -->
     <string name="quantity_text">Quantidade total deste item</string>
     <string name="quantity_save_values">Salvar</string>
     <string name="uncheck_all">Desmarcar tudo</string>
     <string name="title_activity_about">Sobre a APP.</string>
+    <string name="title_activity_splash">SplashActivity</string>
 
 </resources>

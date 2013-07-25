@@ -25,6 +25,7 @@ public class AccountActivity extends Activity implements OnClickListener {
 	private Button buttonCheck = null;
 	private Button buttonItemPerBuddy = null;
 	private Button buttonAbout = null;
+	private Button buttonExit = null;
 	private TextView label = null;
 
 	private StringBuilder itemList = null;
@@ -49,6 +50,7 @@ public class AccountActivity extends Activity implements OnClickListener {
 		buttonItemPerBuddy = (Button) findViewById(R.id.button_item_per_buddy);
 		buttonCheck = (Button) findViewById(R.id.button_check);
 		buttonAbout = (Button) findViewById(R.id.button_about);
+		buttonExit = (Button) findViewById(R.id.button_exit);
 		label = (TextView) findViewById(R.id.account_label);
 
 		buttonAddItem.setOnClickListener(this);
@@ -56,6 +58,7 @@ public class AccountActivity extends Activity implements OnClickListener {
 		buttonItemPerBuddy.setOnClickListener(this);
 		buttonCheck.setOnClickListener(this);
 		buttonAbout.setOnClickListener(this);
+		buttonExit.setOnClickListener(this);
 
 		if (itemList == null) {
 
@@ -93,6 +96,9 @@ public class AccountActivity extends Activity implements OnClickListener {
 			break;
 		case R.id.button_about:
 			openAboutActivity();
+			break;
+		case R.id.button_exit:
+			finish();
 			break;
 		}
 	}
@@ -162,6 +168,10 @@ public class AccountActivity extends Activity implements OnClickListener {
 
 		StringBuilder tmp = new StringBuilder();
 
+		if (label == null) {
+			this.label = (TextView) findViewById(R.id.account_label);
+		}
+
 		if (CalcButeco.getInstance().getBuddyList_DB() != null) {
 
 			for (Enumeration<String> en = CalcButeco.getInstance()
@@ -220,13 +230,15 @@ public class AccountActivity extends Activity implements OnClickListener {
 				String buddystr = enj.nextElement();
 				Float val = BuddyMoney.get(buddystr);
 
-				output.append(buddystr + " = " + val.toString() + "\n");
+				output.append(buddystr + " = " + String.format("%.2f", val)
+						+ "\n");
 
 			}
 
 			updateAccountList();
-			
-			label.setText(label.getText() + "\n\n\nValor justo COM 10% \n==================\n"
+
+			label.setText(label.getText()
+					+ "\n\n\nValor justo COM 10% \n==================\n"
 					+ output.toString());
 
 		}
