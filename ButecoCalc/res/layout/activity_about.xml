@@ -1,63 +1,76 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
+    android:id="@+id/about_screen"
+    android:layout_width="fill_parent"
     android:layout_height="fill_parent"
     android:layout_gravity="center"
-    android:layout_marginLeft="10dp"
-    android:layout_marginRight="10dp"
-    android:gravity="center_horizontal|top"
+    android:background="#009ACE"
+    android:gravity="center_horizontal|bottom"
     android:orientation="vertical" >
 
-    <ImageView
-        android:id="@+id/imageView1"
-        android:layout_width="wrap_content"
+    <LinearLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:contentDescription="@string/empty_text"
-        android:src="@drawable/ic_launcher" />
+        android:layout_gravity="center"
+        android:layout_marginBottom="20dp"
+        android:background="#009ACE"
+        android:gravity="center_horizontal|top"
+        android:orientation="vertical" >
 
-    <ScrollView
-        android:id="@+id/scrollView1"
-        android:layout_width="fill_parent"
-        android:layout_height="fill_parent" >
+        <ImageView
+            android:id="@+id/imageView1"
+            android:layout_width="wrap_content"
+            android:layout_height="150dp"
+            android:src="@drawable/icon_splash" />
 
-        <LinearLayout
-            android:layout_width="match_parent"
+        <TextView
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_gravity="center"
+            android:layout_marginTop="10dp"
+            android:gravity="center_horizontal"
+            android:text="@string/app_name"
+            android:textColor="#FFFFFF"
+            android:textSize="24dp"
+            tools:context=".SplashActivity" />
+
+        <ScrollView
+            android:id="@+id/scrollView1"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent" >
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:singleLine="false"
+                android:text="@string/about"
+                android:textColor="#FFFFFF"
+                android:textSize="14dp"
+                tools:context=".AboutActivity" />
+        </ScrollView>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="100dp"
+        android:layout_gravity="bottom"
+        android:background="#00779F"
+        android:orientation="vertical" >
+
+        <TextView
+            android:id="@+id/about_txt_devel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:layout_marginLeft="10dp"
             android:layout_marginRight="10dp"
-            android:gravity="center_horizontal|top"
-            android:orientation="vertical" >
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/about"
-                android:textSize="10dp"
-                tools:context=".AboutActivity" />
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
-                android:text="@string/deposito"
-                android:textSize="10dp"
-                tools:context=".AboutActivity" />
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
-                android:text="@string/developers"
-                android:textSize="10dp"
-                tools:context=".AboutActivity" />
-
-        </LinearLayout>
-    </ScrollView><Button
-        android:id="@+id/about_btn_close"
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:layout_margin="20dp"
-        android:text="@string/item_button_close" />
+            android:layout_marginTop="10dp"
+            android:text="@string/developers"
+            android:textColor="#FFFFFF"
+            android:textSize="11dp"
+            tools:context=".AboutActivity" />
+    </LinearLayout>
 
 </LinearLayout>

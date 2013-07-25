@@ -39,46 +39,78 @@ public class ExpandListAdapter extends BaseExpandableListAdapter implements
 	}
 
 	public Object getChild(int groupPosition, int childPosition) {
-		// TODO Auto-generated method stub
+
 		ArrayList<ExpandListChild> chList = groups.get(groupPosition)
 				.getItems();
 		return chList.get(childPosition);
 	}
 
 	public long getChildId(int groupPosition, int childPosition) {
-		// TODO Auto-generated method stub
+
 		return childPosition;
+
 	}
 
 	public View getChildView(int groupPosition, int childPosition,
 			boolean isLastChild, View view, ViewGroup parent) {
 		ExpandListChild child = (ExpandListChild) getChild(groupPosition,
 				childPosition);
+		// ViewHolder viewHolder = null;
 		if (view == null) {
+			// viewHolder = new ViewHolder();
 			LayoutInflater infalInflater = (LayoutInflater) context
 					.getSystemService(context.LAYOUT_INFLATER_SERVICE);
 			view = infalInflater.inflate(R.layout.adapter_item_buddy_child,
 					null);
+
 		}
+		// else {
+		// viewHolder = (ViewHolder) view.getTag();
+		// }
 
 		CheckBox tv = (CheckBox) view.findViewById(R.id.item_child_check);
 
 		ExpandListGroup p = (ExpandListGroup) getGroup(groupPosition);
-		String value = p.getName() + "::" + child.getName().toString();
-		this.checkedItems.put(value, "");
+		String buddytmp = p.getName().toString();
+		String itemtmp = child.getName().toString();
+		String value = buddytmp + "::" + itemtmp;
+		// this.checkedItems.put(value, "");
+
+		// if (viewHolder != null) {
+		// if (viewHolder.getCheckBox().isChecked()) {
+		// tv.setChecked(true);
+		// } else {
+		// tv.setChecked(false);
+		// }
+		// } else {
+		// viewHolder = new ViewHolder();
+		// view.setTag(viewHolder);
+		// }
 
 		tv.setText(child.getName().toString());
 		tv.setTag(value);
 		tv.setOnClickListener(this);
+		tv.setChecked(false);
+
+		if (checkedItems.containsKey(value)) {
+			if (checkedItems.get(value).equals(value)) {
+				tv.setChecked(true);
+			}
+		} else {
+			checkedItems.put(value, "");
+		}
 
 		Log.i("ChildView", "= " + p.getName() + "::"
 				+ child.getName().toString());
+
+		Log.i("Group POSITION", "= " + groupPosition);
+		Log.i("Child POSITION", "= " + childPosition);
 
 		return view;
 	}
 
 	public int getChildrenCount(int groupPosition) {
-		// TODO Auto-generated method stub
+
 		ArrayList<ExpandListChild> chList = groups.get(groupPosition)
 				.getItems();
 
@@ -144,6 +176,11 @@ public class ExpandListAdapter extends BaseExpandableListAdapter implements
 
 	public void setCheckedItems(Hashtable<String, String> checkedItems) {
 		this.checkedItems = checkedItems;
+	}
+
+	static class ViewHolder {
+		CheckBox checkBox;
+
 	}
 
 }

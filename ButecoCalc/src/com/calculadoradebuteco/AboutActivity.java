@@ -2,15 +2,18 @@ package com.calculadoradebuteco;
 
 import android.app.Activity;
 import android.os.Bundle;
+import android.text.Html;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.View.OnClickListener;
-import android.widget.Button;
+import android.widget.LinearLayout;
+import android.widget.TextView;
 
 public class AboutActivity extends Activity implements OnClickListener {
 
-	private Button Close = null;
+	private TextView Devel = null;
+	private LinearLayout aboutScreen = null;
 
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
@@ -23,9 +26,16 @@ public class AboutActivity extends Activity implements OnClickListener {
 	protected void onResume() {
 		super.onResume();
 
-		this.Close = (Button) findViewById(R.id.about_btn_close);
-
-		Close.setOnClickListener(this);
+		this.Devel = (TextView) findViewById(R.id.about_txt_devel);
+		this.aboutScreen = (LinearLayout) findViewById(R.id.about_screen);
+		
+		this.Devel.setText(Html.fromHtml("Raoni Novellino<br/>" +
+				"Roberto Oliveira<br/>" +
+				"<i>Development</i><br/><br/>" +
+				"Marcelo Vitor Oliveira<br/>" +
+				"<i>UX/UI design</i>"));
+		
+		this.aboutScreen.setOnClickListener(this);
 
 	}
 
