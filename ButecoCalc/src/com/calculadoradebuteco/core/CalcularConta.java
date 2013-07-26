@@ -74,11 +74,12 @@ public class CalcularConta {
 
 		}
 
-		for (Enumeration<String> eni = vectOccur.keys(); eni.hasMoreElements();) {
-			String item = eni.nextElement();
-			int occur = vectOccur.get(item);
-			// System.out.printf("%s [%d]\n", item, occur);
-		}
+		// for (Enumeration<String> eni = vectOccur.keys();
+		// eni.hasMoreElements();) {
+		// String item = eni.nextElement();
+		// int occur = vectOccur.get(item);
+		// // System.out.printf("%s [%d]\n", item, occur);
+		// }
 
 		return vectOccur;
 
@@ -121,9 +122,9 @@ public class CalcularConta {
 		}
 
 		System.out.println("Total WITHOUT SERVICE");
-		
+
 		float total = 0;
-		
+
 		for (Enumeration<String> eni = vectAccount.keys(); eni
 				.hasMoreElements();) {
 			String item = eni.nextElement();
@@ -131,7 +132,7 @@ public class CalcularConta {
 			total += occur.floatValue();
 			System.out.printf("%s [%.2f]\n", item, occur.floatValue());
 		}
-		
+
 		System.out.printf(">>  Total = %.2f\n\n", total);
 
 		return vectAccount;
@@ -143,7 +144,7 @@ public class CalcularConta {
 		Hashtable<String, Float> vectAccount = calculateIndividualBuddyAccountWithoutService();
 
 		System.out.println("Total WITH SERVICE");
-		
+
 		float total = 0;
 		for (Enumeration<String> eni = vectAccount.keys(); eni
 				.hasMoreElements();) {
@@ -156,7 +157,7 @@ public class CalcularConta {
 		}
 
 		System.out.printf(">>  Total = %.2f\n\n", total);
-		
+
 		return vectAccount;
 
 	}
