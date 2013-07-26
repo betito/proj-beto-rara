@@ -2,12 +2,15 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical" >
+    android:orientation="vertical"
+    android:background="#009ACE"
+     >
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/item_str1"
+        android:textColor="#FFFFFF"
         tools:context=".ItemActivity" />
     
     <TextView
@@ -15,6 +18,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/empty_text"
+        android:textColor="#FFFFFF"
         tools:context=".ItemActivity" />
 
     <TableLayout
@@ -30,6 +34,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:gravity="right"
+                android:textColor="#FFFFFF"
                 android:text="@string/item_name" />
 
             <EditText
@@ -52,6 +57,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:gravity="right"
+                android:textColor="#FFFFFF"
                 android:text="@string/item_price" />
 
             <EditText
@@ -73,6 +79,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:gravity="right"
+                android:textColor="#FFFFFF"
                 android:text="@string/item_quantity" />
 
             <EditText

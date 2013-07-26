@@ -14,7 +14,6 @@ import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
 import android.widget.ExpandableListView;
-import android.widget.ExpandableListView.OnChildClickListener;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -60,25 +59,26 @@ public class ItemPerBuddyActivity extends Activity implements OnClickListener {
 
 		// ExpandList.setOnChildClickListener(this);
 
-//		ExpandList.setOnChildClickListener(new OnChildClickListener() {
-//
-//			public boolean onChildClick(ExpandableListView parent, View v,
-//					int groupPosition, int childPosition, long id) {
-//				final String selected = (String) ExpAdapter.getChild(
-//						groupPosition, childPosition);
-//				Toast.makeText(getApplicationContext(), selected,
-//						Toast.LENGTH_LONG).show();
-//
-//				return true;
-//			}
-//		});
+		// ExpandList.setOnChildClickListener(new OnChildClickListener() {
+		//
+		// public boolean onChildClick(ExpandableListView parent, View v,
+		// int groupPosition, int childPosition, long id) {
+		// final String selected = (String) ExpAdapter.getChild(
+		// groupPosition, childPosition);
+		// Toast.makeText(getApplicationContext(), selected,
+		// Toast.LENGTH_LONG).show();
+		//
+		// return true;
+		// }
+		// });
 
 		this.Buddy = CalcButeco.getInstance().getBuddyList_DB();
 		this.Item = CalcButeco.getInstance().getItemIDs();
-		
+
 		CalcButeco.getInstance().setMatrix();
 
 		itemInfo = (TextView) findViewById(R.id.text_information);
+		itemInfo.setText("");
 		btnSave = (Button) findViewById(R.id.btn_save);
 
 		btnSave.setOnClickListener(this);
@@ -133,13 +133,13 @@ public class ItemPerBuddyActivity extends Activity implements OnClickListener {
 	}
 
 	private void printList(ArrayList<ExpandListGroup> list) {
-		for (Iterator iterator = list.iterator(); iterator.hasNext();) {
+		for (Iterator<ExpandListGroup> iterator = list.iterator(); iterator.hasNext();) {
 			ExpandListGroup expandList = (ExpandListGroup) iterator.next();
 
 			Log.i("RETURN 1", expandList.getName());
 
 			ArrayList<ExpandListChild> listc = expandList.getItems();
-			for (Iterator iterator2 = listc.iterator(); iterator2.hasNext();) {
+			for (Iterator<ExpandListChild> iterator2 = listc.iterator(); iterator2.hasNext();) {
 				ExpandListChild expandListChild = (ExpandListChild) iterator2
 						.next();
 
@@ -192,25 +192,24 @@ public class ItemPerBuddyActivity extends Activity implements OnClickListener {
 			String item = (String) en.nextElement();
 			String value = checkedvalues.get(item);
 			Log.i("SAVE 1", "> " + item + " = " + value);
-			
+
 			if (!(value.equals(""))) {
-				
+
 				String data[] = value.split("::");
 				dbuddy = data[0];
 				ditem = data[1];
-				
+
 				int posbuddy = Integer.valueOf(this.Buddy.get(dbuddy));
 				int positem = Integer.valueOf(this.Item.get(ditem));
 				CalcButeco.getInstance().checkMatrix(positem, posbuddy);
-				
+
 			}
 		}
-		
+
 		Toast.makeText(getApplicationContext(), "Salvo na matrix",
 				Toast.LENGTH_LONG).show();
-		
+
 		finish();
-		
 
 	}
 }

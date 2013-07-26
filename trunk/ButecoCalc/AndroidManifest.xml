@@ -41,7 +41,7 @@
         </activity>
         <activity
             android:name=".BuddyActivity"
-            android:label="@string/title_activity_buddy"
+            android:label="@string/app_name"
             android:screenOrientation="portrait" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -51,7 +51,7 @@
         </activity>
         <activity
             android:name=".ItemPerBuddyActivity"
-            android:label="@string/title_activity_item_per_buddy"
+            android:label="@string/app_name"
             android:screenOrientation="portrait" >
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
@@ -59,7 +59,7 @@
         </activity>
         <activity
             android:name=".AboutActivity"
-            android:label="@string/title_activity_about"
+            android:label="@string/app_name"
             android:theme="@android:style/Theme.Black.NoTitleBar"
             android:screenOrientation="portrait" >
             <meta-data
