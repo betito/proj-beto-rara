@@ -1,0 +1,23 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="horizontal" 
+    android:layout_marginLeft="30dp">
+
+    <CheckBox
+        android:id="@+id/item_child_check"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" 
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:checked="false"/>
+    
+    <TextView
+        android:id="@+id/item_child_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/empty_text" />
+
+
+</LinearLayout>
