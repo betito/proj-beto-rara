@@ -1,0 +1,120 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="#009ACE"
+     >
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/item_str1"
+        android:textColor="#FFFFFF"
+        tools:context=".ItemActivity" />
+    
+    <TextView
+        android:id="@+id/text_item_list"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/empty_text"
+        android:textColor="#FFFFFF"
+        tools:context=".ItemActivity" />
+
+    <TableLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:id="@+id/tableLayout1"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content" >
+
+        <TableRow>
+
+            <TextView
+                android:id="@+id/textView1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="right"
+                android:textColor="#FFFFFF"
+                android:text="@string/item_name" />
+
+            <EditText
+                android:id="@+id/edit_item_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:ems="10"
+                android:hint="@string/item_name_hint"
+                android:inputType="textCapCharacters" >
+            </EditText>
+
+            <requestFocus />
+        </TableRow>
+
+        <TableRow>
+
+            <TextView
+                android:id="@+id/textView2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="right"
+                android:textColor="#FFFFFF"
+                android:text="@string/item_price" />
+
+            <EditText
+                android:id="@+id/edit_item_price"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:ems="10"
+                android:hint="@string/item_price_hint"
+                android:inputType="numberDecimal" >
+            </EditText>
+        </TableRow>
+        
+        
+        <TableRow>
+
+            <TextView
+                android:id="@+id/textView3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="right"
+                android:textColor="#FFFFFF"
+                android:text="@string/item_quantity" />
+
+            <EditText
+                android:id="@+id/edit_item_quant"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:ems="10"
+                android:hint="@string/item_quantity_hint"
+                android:inputType="number" >
+            </EditText>
+        </TableRow>
+        
+    </TableLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="horizontal" >
+
+        <Button
+            android:id="@+id/button_item_save"
+            style="?android:attr/buttonStyleSmall"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/item_button_save"
+            android:layout_weight="1" />
+
+        <Button
+            android:id="@+id/button_item_cancel"
+            style="?android:attr/buttonStyleSmall"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/item_button_close"
+            android:layout_weight="1"/>
+    </LinearLayout>
+
+</LinearLayout>
