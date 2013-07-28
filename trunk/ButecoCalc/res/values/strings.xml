@@ -13,7 +13,8 @@
     <string name="exit">Sair</string>
 
     <!-- Account -->
-    <string name="account_str1">Adicionar dados da conta</string>
+    <string name="account_list_of_buddies">Lista de Amigos</string>
+    <string name="account_list_of_items">Lista de Items</string>
     <string name="account_add_buddy">1. Quem está consumindo?</string>
     <string name="account_add_item">2. Quais items?</string>
     <string name="account_item_per_buddy">3. Quem consumiu o quê?</string>
