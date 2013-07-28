@@ -26,9 +26,7 @@ public class AccountActivity extends Activity implements OnClickListener {
 	private Button buttonItemPerBuddy = null;
 	private Button buttonAbout = null;
 	private Button buttonExit = null;
-	private TextView labelBuddies = null;
-	private TextView labelItems = null;
-	private TextView labelIndividual = null;
+	private TextView label = null;
 
 	private StringBuilder itemList = null;
 
@@ -53,9 +51,7 @@ public class AccountActivity extends Activity implements OnClickListener {
 		buttonCheck = (Button) findViewById(R.id.button_check);
 		buttonAbout = (Button) findViewById(R.id.button_about);
 		buttonExit = (Button) findViewById(R.id.button_exit);
-		labelBuddies = (TextView) findViewById(R.id.account_buddies);
-		labelItems = (TextView) findViewById(R.id.account_items);
-		labelIndividual = (TextView) findViewById(R.id.account_individual);
+		label = (TextView) findViewById(R.id.account_label);
 
 		buttonAddItem.setOnClickListener(this);
 		buttonAddBuddy.setOnClickListener(this);
@@ -146,10 +142,6 @@ public class AccountActivity extends Activity implements OnClickListener {
 
 		StringBuilder tmp = new StringBuilder();
 
-		if (labelItems == null) {
-			this.labelItems = (TextView) findViewById(R.id.account_items);
-		}
-
 		if (CalcButeco.getInstance().getItemListDB() != null) {
 
 			for (Enumeration<String> en = CalcButeco.getInstance()
@@ -159,14 +151,15 @@ public class AccountActivity extends Activity implements OnClickListener {
 						.get(name);
 
 				tmp.append(name);
-				// tmp.append("\t{" + ditem.getId() + "}");
+				tmp.append("\t{" + ditem.getId() + "}");
 				tmp.append("\t[" + ditem.getPrice() + "]");
 				tmp.append("\t[" + ditem.getQuant() + "]");
 				tmp.append("\n");
 			}
 		}
 
-		labelItems.setText("Items\t[Preço Un.]\t[Quant.]\n---------------\n"
+		label.setText(label.getText()
+				+ "\n\n======================\n\nItems \n---------------\n"
 				+ tmp.toString());
 
 	}
@@ -175,8 +168,8 @@ public class AccountActivity extends Activity implements OnClickListener {
 
 		StringBuilder tmp = new StringBuilder();
 
-		if (labelBuddies == null) {
-			this.labelBuddies = (TextView) findViewById(R.id.account_buddies);
+		if (label == null) {
+			this.label = (TextView) findViewById(R.id.account_label);
 		}
 
 		if (CalcButeco.getInstance().getBuddyList_DB() != null) {
@@ -184,15 +177,15 @@ public class AccountActivity extends Activity implements OnClickListener {
 			for (Enumeration<String> en = CalcButeco.getInstance()
 					.getBuddyList_DB().keys(); en.hasMoreElements();) {
 				String name = en.nextElement();
+				int id = CalcButeco.getInstance().getBuddyList_DB().get(name);
 
 				tmp.append(name);
-				// tmp.append("\t{" +
-				// CalcButeco.getInstance().getBuddyList_DB().get(name) + "}");
+				tmp.append("\t[" + id + "]");
 				tmp.append("\n");
 			}
 		}
 
-		labelBuddies.setText("Buddies\n---------------\n" + tmp.toString());
+		label.setText("Buddies\n---------------\n" + tmp.toString());
 
 	}
 
@@ -216,10 +209,6 @@ public class AccountActivity extends Activity implements OnClickListener {
 		Hashtable<String, Float> BuddyMoney = null;
 		StringBuilder output = null;
 
-		if (labelIndividual == null) {
-			this.labelIndividual = (TextView) findViewById(R.id.account_individual);
-		}
-
 		if (CalcButeco.getInstance().getMatrix() != null) {
 			Log.i("MATRIX", "OK");
 			int matrix[][] = CalcButeco.getInstance().getMatrix();
@@ -241,19 +230,16 @@ public class AccountActivity extends Activity implements OnClickListener {
 				String buddystr = enj.nextElement();
 				Float val = BuddyMoney.get(buddystr);
 
-				output.append(buddystr + "\t=\t" + String.format("%.2f", val)
+				output.append(buddystr + " = " + String.format("%.2f", val)
 						+ "\n");
 
 			}
 
 			updateAccountList();
 
-			labelIndividual
-					.setText("\n\nValor justo COM 10% \n==================\n\n"
-							+ "Total Geral\t=\t"
-							+ String.format("%.2f",
-									cc.calculateTotalWithService())
-							+ "\n-----------" + output.toString());
+			label.setText(label.getText()
+					+ "\n\n\nValor justo COM 10% \n==================\n"
+					+ output.toString());
 
 		}
 
