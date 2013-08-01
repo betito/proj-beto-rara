@@ -44,6 +44,7 @@
             android:layout_height="wrap_content"
             android:text="@string/empty_text"
             android:textColor="#FFFFFF"
+            android:layout_marginLeft="10dp"
             tools:context=".AccountActivity" />
 
         <LinearLayout
@@ -77,6 +78,14 @@
                 android:layout_height="wrap_content"
                 android:layout_margin="10dp"
                 android:text="@string/account_item_per_buddy" />
+            
+            <Button
+                android:id="@+id/button_item_per_buddy2"
+                style="?android:attr/buttonStyleSmall"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:text="@string/account_item_per_buddy2" />
 
             <Button
                 android:id="@+id/button_check"
