@@ -22,7 +22,7 @@
             android:id="@+id/imageView1"
             android:layout_width="wrap_content"
             android:layout_height="120dp"
-            android:src="@drawable/icon_splash" />
+            android:src="@drawable/nhc_512px_shadowed_no_border" />
 
         <TextView
             android:layout_width="wrap_content"
