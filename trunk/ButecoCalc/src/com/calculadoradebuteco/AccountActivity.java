@@ -24,6 +24,7 @@ public class AccountActivity extends Activity implements OnClickListener {
 	private Button buttonAddBuddy = null;
 	private Button buttonCheck = null;
 	private Button buttonItemPerBuddy = null;
+	private Button buttonItemPerBuddy2 = null;
 	private Button buttonAbout = null;
 	private Button buttonExit = null;
 	private TextView labelBuddies = null;
@@ -50,6 +51,7 @@ public class AccountActivity extends Activity implements OnClickListener {
 		buttonAddItem = (Button) findViewById(R.id.button_item);
 		buttonAddBuddy = (Button) findViewById(R.id.button_buddy);
 		buttonItemPerBuddy = (Button) findViewById(R.id.button_item_per_buddy);
+		buttonItemPerBuddy2 = (Button) findViewById(R.id.button_item_per_buddy2);
 		buttonCheck = (Button) findViewById(R.id.button_check);
 		buttonAbout = (Button) findViewById(R.id.button_about);
 		buttonExit = (Button) findViewById(R.id.button_exit);
@@ -60,6 +62,7 @@ public class AccountActivity extends Activity implements OnClickListener {
 		buttonAddItem.setOnClickListener(this);
 		buttonAddBuddy.setOnClickListener(this);
 		buttonItemPerBuddy.setOnClickListener(this);
+		buttonItemPerBuddy2.setOnClickListener(this);
 		buttonCheck.setOnClickListener(this);
 		buttonAbout.setOnClickListener(this);
 		buttonExit.setOnClickListener(this);
@@ -95,6 +98,9 @@ public class AccountActivity extends Activity implements OnClickListener {
 		case R.id.button_item_per_buddy:
 			openItemPerBuddyActivity();
 			break;
+		case R.id.button_item_per_buddy2:
+			openItemPerBuddy2Activity();
+			break;
 		case R.id.button_check:
 			showCheck();
 			break;
@@ -128,6 +134,13 @@ public class AccountActivity extends Activity implements OnClickListener {
 					Toast.LENGTH_LONG).show();
 		}
 
+	}
+
+	private void openItemPerBuddy2Activity() {
+
+		Intent intent = new Intent(getApplicationContext(),
+				ItemPerBuddy2Activity.class);
+		startActivityForResult(intent, ITEM_ACT_RES_CODE_3);
 	}
 
 	private void openBuddyActivity() {
