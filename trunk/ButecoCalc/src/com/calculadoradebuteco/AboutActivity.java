@@ -29,11 +29,16 @@ public class AboutActivity extends Activity implements OnClickListener {
 		this.Devel = (TextView) findViewById(R.id.about_txt_devel);
 		this.aboutScreen = (LinearLayout) findViewById(R.id.about_screen);
 		
+		
+		
 		this.Devel.setText(Html.fromHtml("Raoni Novellino<br/>" +
 				"Roberto Oliveira<br/>" +
 				"<i>Development</i><br/><br/>" +
 				"Marcelo Vitor Oliveira<br/>" +
 				"<i>UX/UI design</i>"));
+		
+//		Typeface typeface = Typeface.createFromAsset(getAssets(), "Roboto");
+//		this.Devel.setTypeface(typeface);
 		
 		this.aboutScreen.setOnClickListener(this);
 
