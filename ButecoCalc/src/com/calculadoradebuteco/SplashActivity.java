@@ -5,10 +5,12 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 import android.view.Menu;
+import android.widget.TextView;
 
 public class SplashActivity extends Activity implements Runnable {
 
 	private final int DELAY = 3000;
+	private TextView appName = null;
 
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
@@ -17,6 +19,10 @@ public class SplashActivity extends Activity implements Runnable {
 
 		Handler h = new Handler();
 		h.postDelayed(this, DELAY);
+		
+//		Typeface typeface = Typeface.createFromAsset(getAssets(), "robto/Roboto-Regular.ttf");
+		this.appName = (TextView) findViewById(R.id.splash_appname);
+//		this.appName.setTypeface(typeface);
 
 	}
 
