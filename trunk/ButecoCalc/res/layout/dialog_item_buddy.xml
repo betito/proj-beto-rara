@@ -1,19 +1,24 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent" >
+    android:layout_height="match_parent"
+    android:background="#009ACE" >
     
     <TextView
         android:id="@+id/dialog_item_buddy_desc"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/dialog_item_buddy_desc_text" />
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:text="@string/dialog_item_buddy_desc_text"
+        android:textColor="#ffffff"
+        />
     
     <ListView
         android:id="@+id/dialog_item_buddy_list"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@id/dialog_item_buddy_desc"
+        android:background="#00779F"
         />
         
     
