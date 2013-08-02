@@ -28,7 +28,7 @@
     <string name="item_name">Item </string>
     <string name="item_price">Preço </string>
     <string name="item_quantity">Quantidade</string>
-    <string name="item_name_hint">Digite o Nome do camarada</string>
+    <string name="item_name_hint">Digite o nome do item</string>
     <string name="item_price_hint">Digite o Preço unitário do item</string>
     <string name="item_quantity_hint">Digite a quantidade deste produto</string>
     <string name="item_button_save">Salvar Item</string>
@@ -81,4 +81,8 @@ Designer de UX/UI:\n
     <string name="title_activity_item_per_buddy2">ItemPerBuddy2Activity</string>
     <string name="title_activity_item_per_buddy_list_of_items">ItemPerBuddyListOfItemsActivity</string>
 
+    
+    <string name="dialog_item_buddy_desc_text">Selecione os itens que o jovem %d consumiu:</string>
+    
+    
 </resources>
