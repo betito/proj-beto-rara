@@ -12,13 +12,10 @@ import android.widget.BaseAdapter;
 import android.widget.Button;
 import android.widget.CheckBox;
 
-public class AdapterItemPerBuddy2Dialog extends BaseAdapter implements OnClickListener{
+public class AdapterItemPerBuddy2Dialog extends BaseAdapter {
 
 	private LayoutInflater mInflater;
 	private ArrayList<ItemListView> itens;
-
-	private Button btn_clear = null;
-	private Button btn_close = null;
 
 	public AdapterItemPerBuddy2Dialog(Context context,
 			ArrayList<ItemListView> itens) {
@@ -26,7 +23,7 @@ public class AdapterItemPerBuddy2Dialog extends BaseAdapter implements OnClickLi
 		this.itens = itens;
 		// Objeto responsável por pegar o Layout do item.
 		mInflater = LayoutInflater.from(context);
-		
+
 	}
 
 	@Override
@@ -84,34 +81,6 @@ public class AdapterItemPerBuddy2Dialog extends BaseAdapter implements OnClickLi
 	private class ItemSuporte {
 
 		CheckBox txtTitle;
-
-	}
-
-	@Override
-	public void onClick(View v) {
-
-		switch (v.getId()) {
-
-		case R.id.btn_clear:
-			Clear();
-			break;
-		case R.id.btn_save:
-			SaveAndClose();
-			break;
-
-		}
-
-	}
-
-	private void SaveAndClose() {
-
-		Log.i("BOTAO", "Salvar e Fechar.");
-
-	}
-
-	private void Clear() {
-
-		Log.i("BOTAO", "Desmarcar todos.");
 
 	}
 
