@@ -122,11 +122,17 @@ public class ItemPerBuddy2Activity extends Activity implements OnClickListener,
 	public void onItemClick(AdapterView<?> parent, View view, int position,
 			long id) {
 
+		Button btn_clear = null;
+		Button btn_save_close = null;
+
 		// open dialog
 		Dialog dialog = new Dialog(this);
 		dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
 
 		dialog.setContentView(R.layout.dialog_item_buddy);
+
+		btn_clear = (Button) findViewById(R.id.btn_dialog_clear);
+		btn_save_close = (Button) findViewById(R.id.btn_dialog_save_close);
 
 		TextView name = (TextView) view;
 
@@ -148,8 +154,18 @@ public class ItemPerBuddy2Activity extends Activity implements OnClickListener,
 		listView.setAdapter(itemBuddyListAdapter);
 
 		listView.setOnItemClickListener(new ItemBuddyItemClickListener());
+		btn_clear.setOnClickListener(new ItemBuddyButtonClickListener());
+		btn_save_close.setOnClickListener(new ItemBuddyButtonClickListener());
 
 		dialog.show();
+	}
+
+	private class ItemBuddyButtonClickListener implements OnClickListener {
+		@Override
+		public void onClick(View v) {
+			Log.i("DIALOG", "Clicou mermo");
+		}
+
 	}
 
 	private class ItemBuddyItemClickListener implements OnItemClickListener {
@@ -172,7 +188,6 @@ public class ItemPerBuddy2Activity extends Activity implements OnClickListener,
 
 			itemBuddyListAdapter.notifyDataSetChanged();
 		}
-
 	}
 
 	@Override
