@@ -1,11 +1,13 @@
 package com.calculadoradebuteco;
 
 import java.util.ArrayList;
+import java.util.List;
 
+import com.calculadoradebuteco.adapter.ListItemBuddyAdapter;
+
+import android.app.Activity;
+import android.app.Dialog;
 import android.os.Bundle;
-import android.support.v4.app.FragmentActivity;
-import android.support.v4.app.FragmentManager;
-import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -13,19 +15,16 @@ import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemClickListener;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
+import android.widget.TextView;
 
-public class ItemPerBuddy2Activity extends FragmentActivity implements
-		OnItemClickListener {
+public class ItemPerBuddy2Activity extends Activity implements OnItemClickListener {
 
-	private ArrayList<String> listOfBuddies = null;
 	private ListView buddiesListView;
-	private FragmentManager fm = null;
-
-	private ArrayAdapter arrayAdapter;
 
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
+		
 		setContentView(R.layout.activity_item_per_buddy2);
 	}
 
@@ -33,14 +32,13 @@ public class ItemPerBuddy2Activity extends FragmentActivity implements
 	protected void onResume() {
 		super.onResume();
 
-		fm = getSupportFragmentManager();
+//		fm = getSupportFragmentManager();
 
-		prepareListOfBuddies();
+		List<String> listOfBuddies = prepareListOfBuddies("Jovem ");
 
 		buddiesListView = (ListView) findViewById(R.id.itembuddy_list_of_buddies);
 
-		arrayAdapter = new ArrayAdapter(this,
-				android.R.layout.simple_list_item_1, listOfBuddies);
+		final ArrayAdapter<String> arrayAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, listOfBuddies);
 
 		buddiesListView.setAdapter(arrayAdapter);
 
@@ -48,20 +46,15 @@ public class ItemPerBuddy2Activity extends FragmentActivity implements
 
 	}
 
-	private void prepareListOfBuddies() {
+	private List<String> prepareListOfBuddies(final String iniString) {
 
-		if (listOfBuddies == null) {
+		List<String> list = new ArrayList<String>();
 
-			listOfBuddies = new ArrayList<String>();
-
-			for (int i = 0; i < 10; i++) {
-
-				listOfBuddies.add("Jovem " + i);
-
-			}
-
+		for (int i = 0; i < 10; i++) {
+			list.add(iniString + i);
 		}
-
+		
+		return list;
 	}
 
 	@Override
@@ -74,13 +67,27 @@ public class ItemPerBuddy2Activity extends FragmentActivity implements
 	public boolean onOptionsItemSelected(MenuItem item) {
 		return super.onOptionsItemSelected(item);
 	}
+	
+	
 
 	@Override
-	public void onItemClick(AdapterView<?> arg0, View arg1, int arg2, long arg3) {
+	public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
 
-		Log.i("CLICK ARG2", "" + arg2);
-
-
+		// open dialog
+		Dialog dialog = new Dialog(this);
+		
+		dialog.setContentView(R.layout.dialog_item_buddy);
+		
+		TextView desc = (TextView) dialog.findViewById(R.id.dialog_item_buddy_desc);
+		desc.setText(String.format(getText(R.string.dialog_item_buddy_desc_text).toString(), id));
+		
+		ListView listView = (ListView) dialog.findViewById(R.id.dialog_item_buddy_list);
+		
+		List<String> listItens = prepareListOfBuddies("Item ");
+		
+		listView.setAdapter(new ListItemBuddyAdapter(this, listItens));
+		
+		dialog.show();
 	}
 
 }
