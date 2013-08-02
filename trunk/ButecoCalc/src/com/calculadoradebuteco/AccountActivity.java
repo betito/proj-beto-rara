@@ -27,7 +27,7 @@ public class AccountActivity extends Activity implements OnClickListener {
 	private Button buttonItemPerBuddy2 = null;
 	private Button buttonAbout = null;
 	private Button buttonExit = null;
-	
+
 	private TextView labelBuddies = null;
 	private TextView labelItems = null;
 	private TextView labelIndividual = null;
@@ -98,11 +98,11 @@ public class AccountActivity extends Activity implements OnClickListener {
 		case R.id.button_item_per_buddy:
 			openItemPerBuddyActivity();
 			break;
-			
+
 		case R.id.button_item_per_buddy2:
 			openItemPerBuddy2Activity();
 			break;
-			
+
 		case R.id.button_check:
 			showCheck();
 			break;
@@ -140,8 +140,20 @@ public class AccountActivity extends Activity implements OnClickListener {
 
 	private void openItemPerBuddy2Activity() {
 
-		Intent intent = new Intent(getApplicationContext(), ItemPerBuddy2Activity.class);
-		startActivityForResult(intent, ITEM_ACT_RES_CODE_3);
+		if ((CalcButeco.getInstance().getItemListDB() != null)
+				&& (CalcButeco.getInstance().getBuddyList_DB() != null)) {
+
+			Intent intent = new Intent(getApplicationContext(),
+					ItemPerBuddy2Activity.class);
+			startActivityForResult(intent, ITEM_ACT_RES_CODE_3);
+
+		} else {
+			Toast.makeText(
+					getApplicationContext(),
+					"Faltam dados.\n… preciso inserir os Camaradas e os Itens ;)!!",
+					Toast.LENGTH_LONG).show();
+		}
+
 	}
 
 	private void openBuddyActivity() {

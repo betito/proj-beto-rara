@@ -82,7 +82,7 @@ Designer de UX/UI:\n
     <string name="title_activity_item_per_buddy_list_of_items">ItemPerBuddyListOfItemsActivity</string>
 
     
-    <string name="dialog_item_buddy_desc_text">Selecione os itens que o jovem %d consumiu:</string>
+    <string name="dialog_item_buddy_desc_text">Selecione os itens que o(a) jovem %s consumiu:</string>
     
     
 </resources>
