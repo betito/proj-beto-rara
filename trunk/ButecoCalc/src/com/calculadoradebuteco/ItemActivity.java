@@ -71,12 +71,12 @@ public class ItemActivity extends Activity implements OnClickListener {
 
 		switch (v.getId()) {
 		case R.id.button_item_save:
-			showMsg("Salvar...");
+//			showMsg("Salvar...");
 			writeBuddyInList();
 			ClearData();
 			break;
 		case R.id.button_item_cancel:
-			showMsg("Já...");
+//			showMsg("Já...");
 			finish();
 			break;
 
@@ -155,10 +155,10 @@ public class ItemActivity extends Activity implements OnClickListener {
 
 	}
 
-	private void showMsg(String text) {
-
-		Toast.makeText(getApplicationContext(), text, Toast.LENGTH_SHORT)
-				.show();
-	}
+	// private void showMsg(String text) {
+	//
+	// Toast.makeText(getApplicationContext(), text, Toast.LENGTH_SHORT)
+	// .show();
+	// }
 
 }

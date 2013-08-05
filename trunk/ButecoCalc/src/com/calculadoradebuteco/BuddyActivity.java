@@ -63,13 +63,13 @@ public class BuddyActivity extends Activity implements OnClickListener {
 
 		switch (v.getId()) {
 		case R.id.button_buddy_save:
-			showMsg("Salvar...");
+//			showMsg("Salvar...");
 			writeBuddyInList();
 			ClearFields();
 			break;
 
 		case R.id.button_buddy_close:
-			showMsg("Já...");
+//			showMsg("Já...");
 			finish();
 			break;
 
@@ -139,11 +139,11 @@ public class BuddyActivity extends Activity implements OnClickListener {
 
 	}
 
-	private void showMsg(String text) {
-
-		Toast.makeText(getApplicationContext(), text, Toast.LENGTH_SHORT)
-				.show();
-
-	}
+//	private void showMsg(String text) {
+//
+//		Toast.makeText(getApplicationContext(), text, Toast.LENGTH_SHORT)
+//				.show();
+//
+//	}
 
 }
