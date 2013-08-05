@@ -2,6 +2,8 @@ package com.calculadoradebuteco.model;
 
 import java.util.Hashtable;
 
+import android.util.Log;
+
 import com.calculadoradebuteco.core.DataItem;
 
 public class CalcButeco {
@@ -75,26 +77,31 @@ public class CalcButeco {
 	public int[][] getMatrix() {
 		return Matrix;
 	}
-	
+
 	public int getMatrixData(String lin, String col) {
-		int l = ((Integer)(this.ItemIDs.get(lin)).intValue());
-		int c = ((Integer)(this.buddyList_DB.get(col)).intValue());
+		int l = ((Integer) (this.ItemIDs.get(lin)).intValue());
+		int c = ((Integer) (this.buddyList_DB.get(col)).intValue());
 		return Matrix[l][c];
 	}
 
 	public void setMatrix() {
 
-		if ((this.getItemListDB() != null) && (this.getBuddyList_DB() != null)) {
-			int item_size = this.getItemListDB().size();
-			int buddy_size = this.getBuddyList_DB().size();
-			Matrix = new int[item_size][buddy_size];
+		if (Matrix == null) {
+			Log.d("CALC INSTANCE", "Starting Matrix...");
+			if ((this.getItemListDB() != null)
+					&& (this.getBuddyList_DB() != null)) {
+				int item_size = this.getItemListDB().size();
+				int buddy_size = this.getBuddyList_DB().size();
+				Matrix = new int[item_size][buddy_size];
 
-			for (int x = 0; x < item_size; x++) {
-				for (int y = 0; y < buddy_size; y++) {
-					Matrix[x][y] = 0;
+				for (int x = 0; x < item_size; x++) {
+					for (int y = 0; y < buddy_size; y++) {
+						Matrix[x][y] = 0;
+					}
 				}
 			}
 		}
+
 	}
 
 	public void checkMatrix(int posItem, int posBuddy) {
@@ -109,5 +116,22 @@ public class CalcButeco {
 
 	}
 
-}
+	public void clear() {
 
+		this.BUDDY_ID_COUNT = 0;
+		this.Matrix = null;
+		if (this.buddyList_DB != null) {
+			this.buddyList_DB.clear();
+		}
+		if (this.ItemIDs != null) {
+			this.ItemIDs.clear();
+		}
+		if (this.itemList_DB != null) {
+			this.itemList_DB.clear();
+		}
+
+		Log.i("CALCBUTECO", "All Clear...");
+
+	}
+
+}
