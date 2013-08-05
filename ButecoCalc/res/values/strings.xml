@@ -21,6 +21,7 @@
     <string name="account_item_per_buddy">3. Quem consumiu o quê?</string>
     <string name="account_item_per_buddy2">3. NOVO Quem consumiu o quê 2?</string>
     <string name="account_check">4. Fechar Conta</string>
+    <string name="account_clear">5. Limpar tudo</string>
     <string name="account_about">Sobre</string>
 
     <!-- Item -->
