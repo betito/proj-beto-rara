@@ -35,6 +35,8 @@ public class ItemPerBuddy2Activity extends Activity implements OnClickListener,
 	private Button btn_clear = null;
 	private Button btn_close = null;
 
+	private TextView currentBuddyName = null;
+
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -126,7 +128,8 @@ public class ItemPerBuddy2Activity extends Activity implements OnClickListener,
 		Button btnSaveClose = null;
 
 		// open dialog
-		Dialog dialog = new Dialog(this);
+		final Dialog dialog = new Dialog(this);
+
 		dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
 
 		dialog.setContentView(R.layout.dialog_item_buddy);
@@ -134,12 +137,16 @@ public class ItemPerBuddy2Activity extends Activity implements OnClickListener,
 		btnClear = (Button) dialog.findViewById(R.id.btn_dialog_clear);
 		btnSaveClose = (Button) dialog.findViewById(R.id.btn_dialog_save_close);
 
-		TextView name = (TextView) view;
+		this.currentBuddyName = (TextView) view;
 
-		TextView desc = (TextView) dialog.findViewById(R.id.dialog_item_buddy_desc);
-		desc.setText(String.format(getText(R.string.dialog_item_buddy_desc_text).toString(), name.getText().toString()));
+		TextView desc = (TextView) dialog
+				.findViewById(R.id.dialog_item_buddy_desc);
+		desc.setText(String.format(
+				getText(R.string.dialog_item_buddy_desc_text).toString(),
+				currentBuddyName.getText().toString()));
 
-		ListView listView = (ListView) dialog.findViewById(R.id.dialog_item_buddy_list);
+		ListView listView = (ListView) dialog
+				.findViewById(R.id.dialog_item_buddy_list);
 
 		listView.setTextFilterEnabled(true);
 
@@ -150,19 +157,24 @@ public class ItemPerBuddy2Activity extends Activity implements OnClickListener,
 		listView.setAdapter(itemBuddyListAdapter);
 
 		listView.setOnItemClickListener(new ItemBuddyItemClickListener());
-		
-		btnClear.setOnClickListener(new ItemBuddyButtonClickListener());
-		btnSaveClose.setOnClickListener(new ItemBuddyButtonClickListener());
+
+		btnClear.setOnClickListener(new OnClickListener() {
+
+			@Override
+			public void onClick(View v) {
+				Log.i("DIALOG", "Desmarcar tudo all..");
+			}
+		});
+
+		btnSaveClose.setOnClickListener(new OnClickListener() {
+
+			@Override
+			public void onClick(View v) {
+				dialog.dismiss();
+			}
+		});
 
 		dialog.show();
-	}
-
-	private class ItemBuddyButtonClickListener implements OnClickListener {
-		
-		@Override
-		public void onClick(View v) {
-			Log.i("DIALOG", "Clicou mermo");
-		}
 
 	}
 
@@ -182,10 +194,44 @@ public class ItemPerBuddy2Activity extends Activity implements OnClickListener,
 
 			listItens.set(position, item);
 
+			Log.i("ITEM", " " + item.getItem());
+			Log.i("BUDDY", " " + currentBuddyName.getText().toString());
+
+			if (listItens.get(position).isSelected()) {
+				checkMatrix(item.getItem(), currentBuddyName.getText()
+						.toString());
+			} else {
+				unCheckMatrix(item.getItem(), currentBuddyName.getText()
+						.toString());
+			}
+
 			itemBuddyListAdapter.setList(listItens);
 
 			itemBuddyListAdapter.notifyDataSetChanged();
 		}
+
+		private void checkMatrix(String item, String bud) {
+
+			int posBuddy = CalcButeco.getInstance().getBuddyList_DB().get(bud);
+			int posItem = CalcButeco.getInstance().getItemIDs().get(item);
+
+			CalcButeco.getInstance().setMatrix();
+
+			CalcButeco.getInstance().checkMatrix(posItem, posBuddy);
+
+		}
+
+		private void unCheckMatrix(String item, String bud) {
+
+			int posBuddy = CalcButeco.getInstance().getBuddyList_DB().get(bud);
+			int posItem = CalcButeco.getInstance().getItemIDs().get(item);
+
+			CalcButeco.getInstance().setMatrix();
+
+			CalcButeco.getInstance().uncheckMatrix(posItem, posBuddy);
+
+		}
+
 	}
 
 	@Override
@@ -207,6 +253,8 @@ public class ItemPerBuddy2Activity extends Activity implements OnClickListener,
 	private void SaveAndClose() {
 
 		Log.i("BOTAO", "Salvar e Fechar.");
+		finish();
+		//
 
 	}
 
