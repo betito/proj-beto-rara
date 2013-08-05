@@ -16,13 +16,37 @@
             android:orientation="horizontal"
             android:weightSum="2" >
 
+            <!-- <TableLayout
+                android:id="@+id/account_buddies"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" >
+
+                <TableRow
+                    android:id="@+id/tableRow1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" >
+                </TableRow>
+            </TableLayout>
+            <TableLayout
+                android:id="@+id/account_items"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" >
+
+                <TableRow
+                    android:id="@+id/tableRow1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" >
+                </TableRow>
+            </TableLayout>
+            -->
+
             <TextView
                 android:id="@+id/account_buddies"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_weight="1"
                 android:layout_marginLeft="10dp"
                 android:layout_marginTop="10dp"
+                android:layout_weight="1"
                 android:text="@string/account_list_of_buddies"
                 android:textColor="#FFFFFF"
                 tools:context=".AccountActivity" />
@@ -31,8 +55,8 @@
                 android:id="@+id/account_items"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_weight="1"
                 android:layout_marginTop="10dp"
+                android:layout_weight="1"
                 android:text="@string/account_list_of_items"
                 android:textColor="#FFFFFF"
                 tools:context=".AccountActivity" />
@@ -42,9 +66,9 @@
             android:id="@+id/account_individual"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
             android:text="@string/empty_text"
             android:textColor="#FFFFFF"
-            android:layout_marginLeft="10dp"
             tools:context=".AccountActivity" />
 
         <LinearLayout
@@ -71,21 +95,23 @@
                 android:layout_margin="10dp"
                 android:text="@string/account_add_item" />
 
-            <Button
+            <!--
+                <Button
                 android:id="@+id/button_item_per_buddy"
                 style="?android:attr/buttonStyleSmall"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_margin="10dp"
                 android:text="@string/account_item_per_buddy" />
-            
+            -->
+
             <Button
                 android:id="@+id/button_item_per_buddy2"
                 style="?android:attr/buttonStyleSmall"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_margin="10dp"
-                android:text="@string/account_item_per_buddy2" />
+                android:text="@string/account_item_per_buddy" />
 
             <Button
                 android:id="@+id/button_check"
@@ -95,6 +121,14 @@
                 android:layout_margin="10dp"
                 android:text="@string/account_check" />
 
+            <Button
+                android:id="@+id/button_clear"
+                style="?android:attr/buttonStyleSmall"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:text="@string/account_clear" />
+            
             <Button
                 android:id="@+id/button_about"
                 style="?android:attr/buttonStyleSmall"

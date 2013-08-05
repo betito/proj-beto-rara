@@ -23,8 +23,9 @@ public class AccountActivity extends Activity implements OnClickListener {
 	private Button buttonAddItem = null;
 	private Button buttonAddBuddy = null;
 	private Button buttonCheck = null;
-	private Button buttonItemPerBuddy = null;
+	// private Button buttonItemPerBuddy = null;
 	private Button buttonItemPerBuddy2 = null;
+	private Button buttonClear = null;
 	private Button buttonAbout = null;
 	private Button buttonExit = null;
 
@@ -50,9 +51,12 @@ public class AccountActivity extends Activity implements OnClickListener {
 
 		buttonAddItem = (Button) findViewById(R.id.button_item);
 		buttonAddBuddy = (Button) findViewById(R.id.button_buddy);
-		buttonItemPerBuddy = (Button) findViewById(R.id.button_item_per_buddy);
+		// buttonItemPerBuddy = (Button)
+		// findViewById(R.id.button_item_per_buddy);
 		buttonItemPerBuddy2 = (Button) findViewById(R.id.button_item_per_buddy2);
 		buttonCheck = (Button) findViewById(R.id.button_check);
+		buttonCheck.setEnabled(false);
+		buttonClear = (Button) findViewById(R.id.button_clear);
 		buttonAbout = (Button) findViewById(R.id.button_about);
 		buttonExit = (Button) findViewById(R.id.button_exit);
 		labelBuddies = (TextView) findViewById(R.id.account_buddies);
@@ -61,9 +65,10 @@ public class AccountActivity extends Activity implements OnClickListener {
 
 		buttonAddItem.setOnClickListener(this);
 		buttonAddBuddy.setOnClickListener(this);
-		buttonItemPerBuddy.setOnClickListener(this);
+		// buttonItemPerBuddy.setOnClickListener(this);
 		buttonItemPerBuddy2.setOnClickListener(this);
 		buttonCheck.setOnClickListener(this);
+		buttonClear.setOnClickListener(this);
 		buttonAbout.setOnClickListener(this);
 		buttonExit.setOnClickListener(this);
 
@@ -95,9 +100,9 @@ public class AccountActivity extends Activity implements OnClickListener {
 		case R.id.button_item:
 			openItemActivity();
 			break;
-		case R.id.button_item_per_buddy:
-			openItemPerBuddyActivity();
-			break;
+		// case R.id.button_item_per_buddy:
+		// openItemPerBuddyActivity();
+		// break;
 
 		case R.id.button_item_per_buddy2:
 			openItemPerBuddy2Activity();
@@ -106,13 +111,31 @@ public class AccountActivity extends Activity implements OnClickListener {
 		case R.id.button_check:
 			showCheck();
 			break;
+		case R.id.button_clear:
+
+			clearAll();
+			break;
 		case R.id.button_about:
 			openAboutActivity();
 			break;
 		case R.id.button_exit:
-			finish();
+			finishApp();
 			break;
 		}
+	}
+
+	private void clearAll() {
+		CalcButeco.getInstance().clear();
+		updateAccountList();
+		this.labelIndividual.setText("");
+
+	}
+
+	private void finishApp() {
+
+		CalcButeco.getInstance().clear();
+
+		finish();
 	}
 
 	private void openAboutActivity() {
@@ -121,22 +144,22 @@ public class AccountActivity extends Activity implements OnClickListener {
 
 	}
 
-	private void openItemPerBuddyActivity() {
-
-		if ((CalcButeco.getInstance().getItemListDB() != null)
-				&& (CalcButeco.getInstance().getBuddyList_DB() != null)) {
-
-			Intent intent = new Intent(getApplicationContext(),
-					ItemPerBuddyActivity.class);
-			startActivityForResult(intent, ITEM_ACT_RES_CODE_3);
-		} else {
-			Toast.makeText(
-					getApplicationContext(),
-					"Faltam dados.\nÉ preciso inserir os Camaradas e os Itens ;)!!",
-					Toast.LENGTH_LONG).show();
-		}
-
-	}
+	// private void openItemPerBuddyActivity() {
+	//
+	// if ((CalcButeco.getInstance().getItemListDB() != null)
+	// && (CalcButeco.getInstance().getBuddyList_DB() != null)) {
+	//
+	// Intent intent = new Intent(getApplicationContext(),
+	// ItemPerBuddyActivity.class);
+	// startActivityForResult(intent, ITEM_ACT_RES_CODE_3);
+	// } else {
+	// Toast.makeText(
+	// getApplicationContext(),
+	// "Faltam dados.\nÉ preciso inserir os Camaradas e os Itens ;)!!",
+	// Toast.LENGTH_LONG).show();
+	// }
+	//
+	// }
 
 	private void openItemPerBuddy2Activity() {
 
@@ -192,7 +215,7 @@ public class AccountActivity extends Activity implements OnClickListener {
 			}
 		}
 
-		labelItems.setText("Items\t[Preço Un.]\t[Quant.]\n---------------\n"
+		labelItems.setText("Item(s)\t[Preço Un.]\t[Quant.]\n---------------\n"
 				+ tmp.toString());
 
 	}
@@ -218,7 +241,7 @@ public class AccountActivity extends Activity implements OnClickListener {
 			}
 		}
 
-		labelBuddies.setText("Buddies\n---------------\n" + tmp.toString());
+		labelBuddies.setText("Pessoa(s)\n---------------\n" + tmp.toString());
 
 	}
 
@@ -232,6 +255,25 @@ public class AccountActivity extends Activity implements OnClickListener {
 	private void updateAccountList() {
 		updateDisplayBuddyList();
 		updateDisplayItemList();
+
+		this.buttonCheck.setEnabled(false);
+		this.buttonItemPerBuddy2.setEnabled(false);
+
+		if ((CalcButeco.getInstance().getBuddyList_DB() != null)
+				&& (CalcButeco.getInstance().getBuddyList_DB().size() > 0)
+				&& (CalcButeco.getInstance().getItemListDB() != null)
+				&& (CalcButeco.getInstance().getItemListDB().size() > 0)
+				&& (CalcButeco.getInstance().getMatrix() != null)) {
+			this.buttonCheck.setEnabled(true);
+		}
+
+		if ((CalcButeco.getInstance().getBuddyList_DB() != null)
+				&& (CalcButeco.getInstance().getBuddyList_DB().size() > 0)
+				&& (CalcButeco.getInstance().getItemListDB() != null)
+				&& (CalcButeco.getInstance().getItemListDB().size() > 0)) {
+			this.buttonItemPerBuddy2.setEnabled(true);
+		}
+
 	}
 
 	private void showCheck() {
