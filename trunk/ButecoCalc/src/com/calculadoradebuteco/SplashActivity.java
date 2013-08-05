@@ -9,7 +9,7 @@ import android.widget.TextView;
 
 public class SplashActivity extends Activity implements Runnable {
 
-	private final int DELAY = 100;
+	private final int DELAY = 2000;
 	private TextView appName = null;
 
 	@Override

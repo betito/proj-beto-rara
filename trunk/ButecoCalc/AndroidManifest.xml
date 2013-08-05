@@ -1,18 +1,17 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.calculadoradebuteco"
     android:versionCode="1"
-    android:versionName="1.0" >
+    android:versionName="1.1" >
 
     <uses-sdk
         android:minSdkVersion="8"
         android:targetSdkVersion="17" />
 
     <application
+        android:allowBackup="true"
         android:icon="@drawable/ic_launcher"
         android:label="@string/app_name"
-        android:allowBackup="true"
         android:theme="@style/AppTheme" >
-        
         <activity
             android:name=".MainActivity"
             android:label="@string/app_name"
@@ -67,12 +66,11 @@
             android:name=".AboutActivity"
             android:label="@string/app_name"
             android:screenOrientation="portrait"
-            android:theme="@android:style/Theme.Black.NoTitleBar" >
+            android:theme="@style/customTheme" >
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="android.accounts.AccountAuthenticatorActivity" />
         </activity>
-        
         <activity
             android:name=".SplashActivity"
             android:label="@string/app_name"
@@ -84,13 +82,11 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        
         <activity
             android:name=".ItemPerBuddy2Activity"
             android:label="@string/app_name"
             android:theme="@style/customTheme" >
         </activity>
-        
         <activity
             android:name=".ItemPerBuddyListOfItemsActivity"
             android:label="@string/title_activity_item_per_buddy_list_of_items" >
@@ -98,7 +94,6 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.calculadoradebuteco.ItemPerBuddy2Activity" />
         </activity>
-        
     </application>
 
 </manifest>
