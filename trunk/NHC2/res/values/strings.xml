@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">Na Hora Da Conta</string>
+    <string name="action_settings">Settings</string>
+    
+    <string name="total_bill">Total da conta</string>
+    <string name="plus_10">+ 10%</string>
+    <string name="total_person">Total Individual</string>
+    
+</resources>

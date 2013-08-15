@@ -1,0 +1,118 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="@dimen/activity_padding"
+    tools:context=".controller.activity.MainActivity" >
+
+    <TextView
+        android:id="@+id/main_screen_total_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@color/white"
+        android:textStyle="?android:attr/textAppearanceMedium"
+        android:text="@string/total_bill" />
+
+    <TextView
+        android:id="@+id/main_screen_total"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_toRightOf="@id/main_screen_total_text"
+        android:layout_alignTop="@id/main_screen_total_text"
+        android:textColor="@color/white"
+        android:textStyle="?android:attr/textAppearanceMedium"
+        />
+    
+    <TextView
+        android:id="@+id/main_screen_plus_10_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/main_screen_total_text"
+        android:layout_alignLeft="@id/main_screen_total_text"
+        android:textColor="@color/white"
+        android:textStyle="?android:attr/textAppearanceMedium"
+        android:text="@string/total_bill" />
+
+    <TextView
+        android:id="@+id/main_screen_plus_10"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_toRightOf="@id/main_screen_plus_10_text"
+        android:layout_alignTop="@id/main_screen_plus_10_text"
+        android:textColor="@color/white"
+        android:textStyle="?android:attr/textAppearanceMedium"
+        />
+    
+    <LinearLayout 
+        android:id="@+id/main_screen_list_header"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/main_screen_plus_10_text"
+        android:orientation="horizontal">
+        
+        <TextView
+	        android:layout_width="0dip"
+	        android:layout_height="wrap_content"
+	        android:layout_weight="2"
+            />
+        
+        <TextView
+	        android:layout_width="0dip"
+	        android:layout_height="wrap_content"
+	        android:layout_weight="1"
+	        android:textColor="@color/white"
+	        android:textStyle="?android:attr/textAppearanceMedium"
+	        android:text="@string/total_person"
+            />
+        
+        <TextView
+	        android:layout_width="0dip"
+	        android:layout_height="wrap_content"
+	        android:layout_weight="1"
+	        android:textColor="@color/white"
+	        android:textStyle="?android:attr/textAppearanceMedium"
+	        android:text="@string/plus_10"
+            />
+        
+    </LinearLayout>
+    
+    <!-- bottom buttons -->
+    <LinearLayout 
+        android:id="@+id/main_screen_buttons_layout"
+        android:layout_width="match_parent"
+    	android:layout_height="wrap_content"
+    	android:layout_alignParentBottom="true"
+    	style="?android:attr/buttonBarStyle"
+    	android:orientation="horizontal"
+        >
+        
+        <Button
+            android:id="@+id/main_screen_add_person_button" 
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            style="?android:attr/buttonBarButtonStyle"
+            android:background="@drawable/main_screen_button_add_person"
+            />
+        
+        <Button
+            android:id="@+id/main_screen_add_item_button" 
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            style="?android:attr/buttonBarButtonStyle"
+            android:background="@drawable/main_screen_button_add_item"
+            />
+        
+    </LinearLayout>
+    <!-- end: bottom buttons -->
+    
+    <ListView 
+        android:id="@+id/main_screen_people_list"
+        android:layout_width="match_parent"
+    	android:layout_height="wrap_content"
+    	android:layout_below="@id/main_screen_list_header"
+    	android:layout_above="@id/main_screen_buttons_layout"
+    	android:layout_margin="@dimen/list_margin"
+        android:background="@color/blue_back_list"
+        />
+    
+</RelativeLayout>
