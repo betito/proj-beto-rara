@@ -1,0 +1,8 @@
+<resources>
+
+    <style name="AppTheme" parent="android:Theme.Light" />
+    <style name="WindowTitleBackground">     
+        <item name="android:background">@color/titlebackgroundcolor</item>                   
+    </style>
+
+</resources>

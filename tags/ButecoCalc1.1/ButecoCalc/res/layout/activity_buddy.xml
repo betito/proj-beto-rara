@@ -1,0 +1,77 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="#009ACE"
+     >
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/buddy_str1"
+        tools:context=".BuddyActivity" 
+        android:textColor="#FFFFFF"/>
+    
+    <TextView
+        android:id="@+id/text_buddy_list"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/empty_text"
+        tools:context=".BuddyActivity" 
+        android:textColor="#FFFFFF"/>
+
+    <TableLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:id="@+id/tableLayout1"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content" >
+
+        <TableRow>
+
+            <TextView
+                android:id="@+id/text_buddy_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="right"
+                android:textColor="#FFFFFF"
+                android:text="@string/buddy_name" />
+
+            <EditText
+                android:id="@+id/edit_buddy_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:ems="10"
+                android:hint="@string/buddy_name_hint"
+                android:inputType="textCapCharacters" >
+            </EditText>
+
+            <requestFocus />
+        </TableRow>
+    </TableLayout>
+    
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="horizontal" >
+
+        <Button
+            android:id="@+id/button_buddy_save"
+            style="?android:attr/buttonStyleSmall"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/buddy_button_save"
+            android:layout_weight="1" />
+
+        <Button
+            android:id="@+id/button_buddy_close"
+            style="?android:attr/buttonStyleSmall"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/buddy_button_close"
+            android:layout_weight="1" />
+    </LinearLayout>
+    
+
+</LinearLayout>

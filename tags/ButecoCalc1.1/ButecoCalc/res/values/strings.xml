@@ -1,0 +1,89 @@
+<resources>
+
+    <string name="app_name">Na Hora da Conta</string>
+    <string name="hello_world">Hello world!</string>
+    
+    <string name="menu_settings">Settings</string>
+    <string name="title_activity_main">MainActivity</string>
+
+    <!-- general -->
+    <string name="empty_text"></string>
+
+    <!-- main -->
+    <string name="add_account">\+ Conta</string>
+    <string name="exit">Sair</string>
+
+    <!-- Account -->
+    <string name="account_list_of_buddies">Lista de Amigos</string>
+    <string name="account_list_of_items">Lista de Items</string>
+    <string name="account_add_buddy">1. Quem está consumindo?</string>
+    <string name="account_add_item">2. Quais items?</string>
+    <string name="account_item_per_buddy">3. Quem consumiu o quê?</string>
+    <string name="account_item_per_buddy2">3. NOVO Quem consumiu o quê 2?</string>
+    <string name="account_check">4. Fechar Conta</string>
+    <string name="account_clear">5. Limpar tudo</string>
+    <string name="account_about">Sobre</string>
+
+    <!-- Item -->
+    <string name="item_str1">Adicionar um item à conta</string>
+    <string name="item_name">Item </string>
+    <string name="item_price">Preço </string>
+    <string name="item_quantity">Quantidade</string>
+    <string name="item_name_hint">Digite o nome do item</string>
+    <string name="item_price_hint">Digite o Preço unitário do item</string>
+    <string name="item_quantity_hint">Digite a quantidade deste produto</string>
+    <string name="item_button_save">Salvar Item</string>
+    <string name="item_button_close">Já</string>
+    <string name="title_activity_account">AccountActivity</string>
+    <string name="title_activity_item">ItemActivity</string>
+    <string name="title_activity_buddy">BuddyActivity</string>
+
+    <!-- Buddy -->
+    <string name="buddy_str1">Adicionar companheiro</string>
+    <string name="buddy_name">Nome</string>
+    <string name="buddy_name_hint">Nome</string>
+    <string name="buddy_button_save">Salvar Companheiro</string>
+    <string name="buddy_button_close">Já!</string>
+    <string name="title_activity_quantity">QuantityActivity</string>
+    <string name="title_activity_item_per_buddy">ItemPerBuddyActivity</string>
+
+    
+    <!-- Budddy -> Item -->
+    <string name="itemperbuddy_text">Aqui você irá marcar os itens consumidos por cada pessoa. Clique
+        nos nomes para mostrar a lista de itens e, em seguida, marque os que foram
+		consumidos por esta pessoa clicada.\n</string>
+    
+        
+    <!-- About -->
+    <string name="about">Esta App foi feita pensando em ajudar as pessoas na hora de rachar a conta. E isso acontece muito
+com as pessoas que gostam de uma reunião entre amigos em uma mesa de buteco, restaurante ou em casa onde a conta,
+na maioria das vezes, é rachada e sempre tem alguém que "se dá bem" e outros que "se dão mal".
+\n
+Pensamos que a conta deve ser justa, cada um deve pagar ou dividir apenas aquilo que consumiu. E para isso, fizemos
+essa app. ;-)\n
+Se você quer uma versão mais bonita dessa APP, dá uma força financeira para nós e aí a gente continua o trabalho. Você sabe o que
+	significa R$ 1,00 no seu dia a dia? Pois é! É muito! E para nós também vale muito. Assim,
+	Ajude a dignificar nosso esforço e, se você se solidarizar, é só doar essa quantia que a gente aceita.
+	Clica aqui e manda um email que te enviaremos os dados do PagSeguro e PayPal. Se você não doar, não iremos travar sua aplicação nem
+	impedir que você não a use mais, muito pelo contrário, queremos que você use e mostre para nós que fizemos algo útil pro
+	dia a dia das pessoas. Pode clicar aqui para enviar o seu Curti com relação a nossa app.</string>
+    <string name="developers">Desenvolvedores:\n
+     Raoni Novellino\n
+     Roberto Oliveira\n\n
+Designer de UX/UI:\n
+     Marcelo Vitor Oliveira</string>
+
+    <!-- Quantity -->
+    <string name="quantity_text">Quantidade total deste item</string>
+    <string name="quantity_save_values">Salvar</string>
+    <string name="uncheck_all">Desmarcar tudo</string>
+    <string name="title_activity_about">Sobre a APP.</string>
+    <string name="title_activity_splash">SplashActivity</string>
+    <string name="title_activity_item_per_buddy2">ItemPerBuddy2Activity</string>
+    <string name="title_activity_item_per_buddy_list_of_items">ItemPerBuddyListOfItemsActivity</string>
+
+    
+    <string name="dialog_item_buddy_desc_text">Selecione os itens que o(a) jovem %s consumiu:</string>
+    
+    
+</resources>
