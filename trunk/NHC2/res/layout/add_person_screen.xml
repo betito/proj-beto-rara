@@ -1,8 +1,44 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<apps.br.nhc.view.component.RelativeLayoutDialog xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical" >
+    android:background="@color/back_dialog"
+    >
     
+    <RelativeLayout 
+        android:layout_width="wrap_content"
+    	android:layout_height="wrap_content"
+    	android:layout_centerInParent="true"
+    	android:padding="@dimen/padding_dialog"
+    	android:background="@color/back_dialog_internal">
+        
+	    <EditText
+	        android:id="@+id/add_person_edit_name"
+	        android:layout_width="match_parent"
+	        android:layout_height="wrap_content"
+	        android:hint="@string/buddy_name_hint"
+	        android:inputType="textCapCharacters"
+	        />
+	    
+	    <Button 
+	        android:id="@+id/add_person_button_cancel"
+	        android:layout_width="wrap_content"
+	        android:layout_height="wrap_content"
+	        android:layout_below="@id/add_person_edit_name"
+	        style="?android:attr/buttonStyle"
+	        android:text="@string/button_cancel"
+	        />
+	    
+	    <Button 
+	        android:id="@+id/add_person_button_save"
+	        android:layout_width="wrap_content"
+	        android:layout_height="wrap_content"
+	        android:layout_toRightOf="@id/add_person_button_cancel"
+	        android:layout_alignTop="@id/add_person_button_cancel"
+	        style="?android:attr/buttonStyle"
+	        android:text="@string/button_save"
+	        />
 
-</LinearLayout>
+    </RelativeLayout>
+    
+</apps.br.nhc.view.component.RelativeLayoutDialog>

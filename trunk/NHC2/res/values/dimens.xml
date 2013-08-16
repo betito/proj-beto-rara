@@ -4,5 +4,8 @@
     <dimen name="activity_padding">5dp</dimen>
     
     <dimen name="list_margin">10dp</dimen>
+    
+    <dimen name="padding_dialog">15dp</dimen>
+    
 
 </resources>

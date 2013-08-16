@@ -3,6 +3,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:padding="@dimen/activity_padding"
+    android:background="@color/back_activity"
     tools:context=".controller.activity.MainActivity" >
 
     <TextView
@@ -10,7 +11,6 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textColor="@color/white"
-        android:textStyle="?android:attr/textAppearanceMedium"
         android:text="@string/total_bill" />
 
     <TextView
@@ -20,7 +20,6 @@
         android:layout_toRightOf="@id/main_screen_total_text"
         android:layout_alignTop="@id/main_screen_total_text"
         android:textColor="@color/white"
-        android:textStyle="?android:attr/textAppearanceMedium"
         />
     
     <TextView
@@ -30,7 +29,6 @@
         android:layout_below="@id/main_screen_total_text"
         android:layout_alignLeft="@id/main_screen_total_text"
         android:textColor="@color/white"
-        android:textStyle="?android:attr/textAppearanceMedium"
         android:text="@string/total_bill" />
 
     <TextView
@@ -40,7 +38,6 @@
         android:layout_toRightOf="@id/main_screen_plus_10_text"
         android:layout_alignTop="@id/main_screen_plus_10_text"
         android:textColor="@color/white"
-        android:textStyle="?android:attr/textAppearanceMedium"
         />
     
     <LinearLayout 
@@ -61,7 +58,6 @@
 	        android:layout_height="wrap_content"
 	        android:layout_weight="1"
 	        android:textColor="@color/white"
-	        android:textStyle="?android:attr/textAppearanceMedium"
 	        android:text="@string/total_person"
             />
         
@@ -70,7 +66,6 @@
 	        android:layout_height="wrap_content"
 	        android:layout_weight="1"
 	        android:textColor="@color/white"
-	        android:textStyle="?android:attr/textAppearanceMedium"
 	        android:text="@string/plus_10"
             />
         
