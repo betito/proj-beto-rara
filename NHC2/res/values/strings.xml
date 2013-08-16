@@ -8,4 +8,13 @@
     <string name="plus_10">+ 10%</string>
     <string name="total_person">Total Individual</string>
     
+    <string name="buddy_name_hint">nome</string>
+    <string name="item_name_hint">nome</string>
+    <string name="item_unit_price_hint">preço unitario</string>
+    <string name="item_qtd_hint">quantidade</string>
+    
+    <string name="button_cancel">Voltar</string>
+    <string name="button_save">Salvar</string>
+    
+    
 </resources>

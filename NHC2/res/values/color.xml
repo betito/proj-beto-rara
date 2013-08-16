@@ -5,4 +5,8 @@
     
     <color name="blue_back_list">#00779F</color>
     
+    <color name="back_dialog">#aa000000</color>
+    <color name="back_dialog_internal">#00b0f0</color>
+    
+    <color name="back_activity">#0097cb</color>
 </resources>

@@ -11,12 +11,12 @@ import android.widget.TextView;
 import apps.br.nhc.R;
 import apps.br.nhc.model.domain.PersonItem;
 
-public class ListItemBuddyAdapter extends BaseAdapter {
+public class ListBuddyAdapter extends BaseAdapter {
 
 	private final LayoutInflater inflater;
 	private transient List<PersonItem> list;
 
-	public ListItemBuddyAdapter(Context context, List<PersonItem> list) {
+	public ListBuddyAdapter(Context context, List<PersonItem> list) {
 
 		inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
 

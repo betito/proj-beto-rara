@@ -3,30 +3,23 @@ package apps.br.nhc.controller.activity.subactivity;
 import java.util.List;
 
 import android.app.Activity;
-import android.content.Context;
-import android.view.LayoutInflater;
 import android.view.View;
 import android.view.View.OnClickListener;
-import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ListView;
 import apps.br.nhc.R;
-import apps.br.nhc.controller.activity.NhcBO;
+import apps.br.nhc.controller.NhcBO;
+import apps.br.nhc.controller.activity.MainActivity;
 import apps.br.nhc.model.domain.PersonItem;
-import apps.br.nhc.view.adapter.ListItemBuddyAdapter;
+import apps.br.nhc.view.adapter.ListBuddyAdapter;
 
 public class MainSubActivity extends SubActivity implements OnClickListener {
 
 	// adapter of person list
-	private ListItemBuddyAdapter listItemBuddyAdapter;
+	private ListBuddyAdapter listItemBuddyAdapter;
 	
-	// layout inflater
-	private final LayoutInflater inflater;
-	
-	public MainSubActivity(Activity activity) {
-		super(activity);
-		
-		inflater = (LayoutInflater) activity.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+	public MainSubActivity(final Activity activity, final View viewRootSub) {
+		super(activity, viewRootSub);
 		
 		ListView personList = (ListView) activity.findViewById(R.id.main_screen_people_list);
 		Button addPersonButton = (Button) activity.findViewById(R.id.main_screen_add_person_button);
@@ -38,7 +31,7 @@ public class MainSubActivity extends SubActivity implements OnClickListener {
 		// get list of person
 		List<PersonItem> listPerson = NhcBO.getInstance().getBuddyListDB();
 		
-		personList.setAdapter(listItemBuddyAdapter = new ListItemBuddyAdapter(activity, listPerson));
+		personList.setAdapter(listItemBuddyAdapter = new ListBuddyAdapter(activity, listPerson));
 	}
 	
 	@Override
@@ -46,11 +39,11 @@ public class MainSubActivity extends SubActivity implements OnClickListener {
 		
 		switch (view.getId()) {
 		case R.id.main_screen_add_person_button:
-			openAddPersonScreen();
+			((MainActivity) activity).openAddPersonScreen();
 			break;
 			
 		case R.id.main_screen_add_item_button:
-			openAddItemScreen();
+			((MainActivity) activity).openAddItemScreen();
 			break;
 
 		default:
@@ -63,20 +56,4 @@ public class MainSubActivity extends SubActivity implements OnClickListener {
 		listItemBuddyAdapter.notifyDataSetChanged();
 	}
 	
-	private void openAddPersonScreen() {
-		
-		ViewGroup root = (ViewGroup) activity.getWindow().getDecorView().getRootView();
-		
-		inflater.inflate(R.layout.add_person_screen, root, true);
-	}
-	
-	private void openAddItemScreen() {
-		
-		ViewGroup root = (ViewGroup) activity.getWindow().getDecorView().getRootView();
-		
-		inflater.inflate(R.layout.add_item_screen, root, true);
-	}
-
-	
-
 }
