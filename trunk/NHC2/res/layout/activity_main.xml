@@ -79,6 +79,8 @@
     	android:layout_alignParentBottom="true"
     	style="?android:attr/buttonBarStyle"
     	android:orientation="horizontal"
+    	android:gravity="center_horizontal"
+    	
         >
         
         <Button
@@ -86,7 +88,9 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             style="?android:attr/buttonBarButtonStyle"
-            android:background="@drawable/main_screen_button_add_person"
+            android:background="@drawable/add_user"
+            android:gravity="center"
+            
             />
         
         <Button
@@ -94,7 +98,10 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             style="?android:attr/buttonBarButtonStyle"
-            android:background="@drawable/main_screen_button_add_item"
+            android:background="@drawable/add_item"
+            android:layout_gravity="center"
+            
+            
             />
         
     </LinearLayout>
