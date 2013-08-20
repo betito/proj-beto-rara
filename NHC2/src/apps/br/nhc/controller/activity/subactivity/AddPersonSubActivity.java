@@ -51,10 +51,10 @@ public class AddPersonSubActivity extends SubActivity implements OnClickListener
 		
 		String name = edtName.getText().toString().trim().toUpperCase(Utils.getLocale());
 		
-		if(!name.isEmpty() && !NhcBO.getInstance().getBuddyListDB().contains(name)) {
+		if(!name.isEmpty() && !NhcBO.getInstance().getBuddyListDB().containsKey(name)) {
 			PersonItem item = new PersonItem(name, 0d, 0d);
 			
-			NhcBO.getInstance().getBuddyListDB().add(item);
+			NhcBO.getInstance().getBuddyListDB().put(name, item);
 		}
 		
 		((MainActivity) activity).closeAddPersonAct(viewRootSub);

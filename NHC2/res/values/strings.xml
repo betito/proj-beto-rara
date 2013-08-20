@@ -16,5 +16,6 @@
     <string name="button_cancel">Voltar</string>
     <string name="button_save">Salvar</string>
     
+    <string name="merge_item_person_desc_text">Selecione os itens que o(a) jovem %s consumiu:</string>
     
 </resources>

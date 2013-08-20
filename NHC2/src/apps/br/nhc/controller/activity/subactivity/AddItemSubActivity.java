@@ -1,5 +1,8 @@
 package apps.br.nhc.controller.activity.subactivity;
 
+import java.util.Arrays;
+import java.util.List;
+
 import android.app.Activity;
 import android.view.View;
 import android.view.View.OnClickListener;
@@ -38,7 +41,10 @@ public class AddItemSubActivity extends SubActivity implements OnClickListener {
 		butCancel.setOnClickListener(this);
 		butSave.setOnClickListener(this);
 		
-		listItem.setAdapter(listItemAdapter = new ListItemAdapter(activity, NhcBO.getInstance().getItemListDB()));
+		// get list of itens
+		List<DataItem> list = Arrays.asList(NhcBO.getInstance().getItemListDB().values().toArray(new DataItem[NhcBO.getInstance().getItemListDB().values().size()]));
+		
+		listItem.setAdapter(listItemAdapter = new ListItemAdapter(activity, list));
 	}
 
 	@Override
@@ -65,7 +71,7 @@ public class AddItemSubActivity extends SubActivity implements OnClickListener {
 		String price = edtPrice.getText().toString().trim();
 		String quant = edtQtd.getText().toString().trim();
 		
-		if(NhcBO.getInstance().getBuddyListDB().contains(name)) {
+		if(NhcBO.getInstance().getBuddyListDB().containsKey(name)) {
 			// TODO: make warning user
 		}
 		else if(name.isEmpty()) {
@@ -81,9 +87,14 @@ public class AddItemSubActivity extends SubActivity implements OnClickListener {
 			
 			int id = NhcBO.getInstance().getItemListDB().size();
 			
-			DataItem ditem = new DataItem(id, name, price, quant);
+			DataItem item = new DataItem(id, name, price, quant);
 			
-			NhcBO.getInstance().getItemListDB().add(ditem);
+			NhcBO.getInstance().getItemListDB().put(name, item);
+			
+			// get list of itens
+			List<DataItem> list = Arrays.asList(NhcBO.getInstance().getItemListDB().values().toArray(new DataItem[NhcBO.getInstance().getItemListDB().values().size()]));
+			
+			listItemAdapter.setList(list);
 			
 			listItemAdapter.notifyDataSetChanged();
 			
