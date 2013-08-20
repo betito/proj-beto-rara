@@ -8,6 +8,7 @@ import android.view.Menu;
 import android.view.View;
 import android.view.ViewGroup;
 import apps.br.nhc.R;
+import apps.br.nhc.controller.activity.subactivity.MergeSubActivity;
 import apps.br.nhc.controller.activity.subactivity.AddItemSubActivity;
 import apps.br.nhc.controller.activity.subactivity.AddPersonSubActivity;
 import apps.br.nhc.controller.activity.subactivity.MainSubActivity;
@@ -17,6 +18,7 @@ public class MainActivity extends Activity {
 	private MainSubActivity mainSubActivity;
 	private AddPersonSubActivity addPersonSubActivity;
 	private AddItemSubActivity addItemSubActivity;
+	private MergeSubActivity addItemPersonSubActivity;
 	
 	// layout inflater
 	private LayoutInflater inflater;
@@ -56,6 +58,15 @@ public class MainActivity extends Activity {
 		addItemSubActivity = new AddItemSubActivity(this, viewRootAddItem);
 	}
 	
+	public void openAddItemPersonScreen(final String name) {
+		
+		View viewRootItemPerson = inflater.inflate(R.layout.merge_screen, viewRoot, false);
+		
+		viewRoot.addView(viewRootItemPerson);
+		
+		addItemPersonSubActivity = new MergeSubActivity(this, viewRootItemPerson, name);
+	}
+	
 	public void closeAddPersonAct(final View viewRootSub) {
 		closeSubActivity(viewRootSub);
 		
@@ -66,6 +77,13 @@ public class MainActivity extends Activity {
 		closeSubActivity(viewRootSub);
 		
 		addItemSubActivity = null;
+	}
+	
+	public void closeMergeAct(final View viewRootSub) {
+		
+		
+		
+		closeSubActivity(viewRootSub);
 	}
 	
 	/**

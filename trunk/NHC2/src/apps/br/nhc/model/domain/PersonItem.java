@@ -6,6 +6,11 @@ public class PersonItem {
 	private double total;
 	private double totalPlus10;
 	
+	public PersonItem(final String name) {
+		
+		this.name = name;
+	}
+	
 	public PersonItem(final String name, final double total, final double totalPlus10) {
 		
 		this.name = name;

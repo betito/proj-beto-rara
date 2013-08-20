@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<apps.br.nhc.view.component.RelativeLayoutDialog xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/back_dialog" >
+    
+    <RelativeLayout 
+	    android:layout_width="wrap_content"
+	    android:layout_height="wrap_content"
+	    android:layout_centerInParent="true"
+    	android:padding="@dimen/padding_dialog"
+	    android:background="@color/back_dialog_internal" >
+	
+	    <TextView
+	        android:id="@+id/merge_item_person_desc"
+	        android:layout_width="wrap_content"
+	        android:layout_height="wrap_content"
+	        android:text="@string/merge_item_person_desc_text"
+	        android:textAppearance="?android:attr/textAppearanceMedium"
+	        android:textColor="@color/white" />
+	
+	    <Button
+	        android:id="@+id/merge_item_person_close"
+	        android:layout_width="wrap_content"
+	        android:layout_height="wrap_content"
+	        android:layout_alignParentBottom="true"
+	        android:layout_centerHorizontal="true"
+	        android:text="@string/button_save" />
+	    
+	    <ListView
+	        android:id="@+id/merge_item_person_list"
+	        android:layout_width="wrap_content"
+	        android:layout_height="wrap_content"
+	        android:layout_below="@id/merge_item_person_desc"
+	        android:layout_above="@id/merge_item_person_close"
+	        android:background="@color/blue_back_list" />
+	    
+	</RelativeLayout>
+
+</apps.br.nhc.view.component.RelativeLayoutDialog>
