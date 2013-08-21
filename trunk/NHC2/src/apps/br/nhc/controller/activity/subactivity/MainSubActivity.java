@@ -19,11 +19,17 @@ import apps.br.nhc.view.adapter.ListBuddyAdapter;
 
 public class MainSubActivity extends SubActivity implements OnClickListener, OnItemClickListener {
 
+	private TextView txvTotal;
+	private TextView txvTotalP10;
+	
 	// adapter of person list
 	private ListBuddyAdapter listItemBuddyAdapter;
 	
 	public MainSubActivity(final Activity activity, final View viewRootSub) {
 		super(activity, viewRootSub);
+		
+		txvTotal = (TextView) activity.findViewById(R.id.main_screen_total);
+		txvTotalP10 = (TextView) activity.findViewById(R.id.main_screen_plus_10);
 		
 		ListView personList = (ListView) activity.findViewById(R.id.main_screen_people_list);
 		Button addPersonButton = (Button) activity.findViewById(R.id.main_screen_add_person_button);
@@ -36,7 +42,6 @@ public class MainSubActivity extends SubActivity implements OnClickListener, OnI
 		List<PersonItem> listPerson = Arrays.asList(NhcBO.getInstance().getBuddyListDB().values().toArray(new PersonItem[NhcBO.getInstance().getBuddyListDB().values().size()]));
 		
 		personList.setAdapter(listItemBuddyAdapter = new ListBuddyAdapter(activity, listPerson));
-		
 		
 		personList.setOnItemClickListener(this);
 	}
@@ -64,7 +69,7 @@ public class MainSubActivity extends SubActivity implements OnClickListener, OnI
 		
 		TextView txvName = (TextView) view.findViewById(R.id.person_list_name);
 		
-		((MainActivity) activity).openAddItemPersonScreen(txvName.getText().toString());
+		((MainActivity) activity).openMergeScreen(txvName.getText().toString());
 		
 	}
 	
@@ -75,6 +80,13 @@ public class MainSubActivity extends SubActivity implements OnClickListener, OnI
 		listItemBuddyAdapter.setList(listPerson);
 		
 		listItemBuddyAdapter.notifyDataSetChanged();
+	}
+	
+	public void updateTotals() {
+		
+		txvTotal.setText(" = " + String.valueOf(NhcBO.getInstance().getTotalBill()));
+		txvTotalP10.setText(" = " + String.valueOf(NhcBO.getInstance().getTotalP10()));
+		
 	}
 	
 	

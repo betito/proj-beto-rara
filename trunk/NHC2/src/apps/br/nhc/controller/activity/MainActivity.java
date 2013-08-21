@@ -3,11 +3,13 @@ package apps.br.nhc.controller.activity;
 import android.os.Bundle;
 import android.app.Activity;
 import android.content.Context;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.View;
 import android.view.ViewGroup;
 import apps.br.nhc.R;
+import apps.br.nhc.controller.NhcBO;
 import apps.br.nhc.controller.activity.subactivity.MergeSubActivity;
 import apps.br.nhc.controller.activity.subactivity.AddItemSubActivity;
 import apps.br.nhc.controller.activity.subactivity.AddPersonSubActivity;
@@ -58,7 +60,7 @@ public class MainActivity extends Activity {
 		addItemSubActivity = new AddItemSubActivity(this, viewRootAddItem);
 	}
 	
-	public void openAddItemPersonScreen(final String name) {
+	public void openMergeScreen(final String name) {
 		
 		View viewRootItemPerson = inflater.inflate(R.layout.merge_screen, viewRoot, false);
 		
@@ -81,9 +83,25 @@ public class MainActivity extends Activity {
 	
 	public void closeMergeAct(final View viewRootSub) {
 		
-		
+		// do calcs
+		showCheck();
 		
 		closeSubActivity(viewRootSub);
+	}
+	
+	private void showCheck() {
+
+		if (NhcBO.getInstance().getMatrix() != null) {
+			
+			Log.i("MATRIX", "OK");
+			
+			NhcBO.getInstance().calcBill();
+			
+			mainSubActivity.notifyChangeList();
+			
+			mainSubActivity.updateTotals();
+		}
+
 	}
 	
 	/**

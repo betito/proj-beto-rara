@@ -2,7 +2,6 @@ package apps.br.nhc.controller.activity.subactivity;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Map;
 
 import android.app.Activity;
 import android.util.Log;
@@ -16,7 +15,6 @@ import android.widget.TextView;
 import apps.br.nhc.R;
 import apps.br.nhc.controller.NhcBO;
 import apps.br.nhc.controller.activity.MainActivity;
-import apps.br.nhc.model.domain.DataItem;
 import apps.br.nhc.model.domain.ItensListSelect;
 import apps.br.nhc.view.adapter.ListMergeAdapter;
 
@@ -78,12 +76,15 @@ public class MergeSubActivity extends SubActivity implements OnClickListener, On
 
 		ItensListSelect item;
 
-		Map<String, DataItem> names = NhcBO.getInstance().getItemListDB();
+		for (String key : NhcBO.getInstance().getItemListDB().keySet()) {
 
-		for (String key : names.keySet()) {
-
-			item = new ItensListSelect(key, false);
-
+			if(NhcBO.getInstance().getMatrix().get(key) != null && NhcBO.getInstance().getMatrix().get(key).contains(personName)) {
+				item = new ItensListSelect(key, true);
+			}
+			else {
+				item = new ItensListSelect(key, false);
+			}
+			
 			list.add(item);
 		}
 
