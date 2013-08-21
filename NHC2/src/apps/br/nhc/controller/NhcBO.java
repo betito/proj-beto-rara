@@ -1,9 +1,11 @@
 package apps.br.nhc.controller;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 
-import android.util.Log;
+import android.util.Pair;
+import apps.br.nhc.model.CalcBill;
 import apps.br.nhc.model.domain.DataItem;
 import apps.br.nhc.model.domain.PersonItem;
 import apps.br.nhc.model.domain.Matrix;
@@ -18,6 +20,9 @@ public class NhcBO {
 	
 	private Matrix matrix = new Matrix();
 	
+	private double totalBill;
+	private double totalP10;
+	
 	public static NhcBO getInstance() {
 		
 		if(instance == null) {
@@ -28,36 +33,13 @@ public class NhcBO {
 		return instance;
 	}
 
-//	public void setMatrix() {
-//
-//		if (Matrix == null) {
-//			
-//			Log.d("CALC INSTANCE", "Starting Matrix...");
-//			
-//			if ((this.getItemListDB() != null) && (this.getBuddyListDB() != null)) {
-//				
-//				int item_size = this.getItemListDB().size();
-//				int buddy_size = this.getBuddyListDB().size();
-//				
-////				Matrix = new Matrix[item_size][buddy_size];
-//
-//				for (int x = 0; x < item_size; x++) {
-//					
-//					for (int y = 0; y < buddy_size; y++) {
-//						Matrix.put(key, value) = false;
-//					}
-//				}
-//			}
-//		}
-//	}
-	
 	public void setMatrix(final String item, final String person) {
 		
 		if(matrix.get(item) == null) {
-			matrix.put(item, new HashMap<String, Boolean>());
+			matrix.put(item, new ArrayList<String>());
 		}
 		
-		matrix.get(item).put(person, true);
+		matrix.get(item).add(person);
 	}
 	
 	public void unsetMatrix(final String item, final String person) {
@@ -71,6 +53,15 @@ public class NhcBO {
 			}
 		}
 		
+	}
+	
+	public void calcBill() {
+		CalcBill calcBill = new CalcBill(buddyListDB, itemListDB, matrix);
+		
+		Pair<Double, Double> totals = calcBill.calculateIndividualBuddyAccountWithoutService();
+		
+		totalBill = totals.first;
+		totalP10 = totals.second;
 	}
 	
 	
@@ -87,5 +78,27 @@ public class NhcBO {
 	public void setBuddyListDB(Map<String, PersonItem> buddyListDB) {
 		this.buddyListDB = buddyListDB;
 	}
+
+	public Matrix getMatrix() {
+		return matrix;
+	}
+	public void setMatrix(Matrix matrix) {
+		this.matrix = matrix;
+	}
+
+	public double getTotalBill() {
+		return totalBill;
+	}
+	public void setTotalBill(double totalBill) {
+		this.totalBill = totalBill;
+	}
+
+	public double getTotalP10() {
+		return totalP10;
+	}
+	public void setTotalP10(double totalP10) {
+		this.totalP10 = totalP10;
+	}
+	
 	
 }

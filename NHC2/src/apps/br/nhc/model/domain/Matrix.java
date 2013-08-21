@@ -1,9 +1,13 @@
 package apps.br.nhc.model.domain;
 
 import java.util.HashMap;
-import java.util.Map;
+import java.util.List;
 
-public class Matrix extends HashMap<String, Map<String, Boolean>> {
+/*
+ * String - Item
+ * String - Person
+ */
+public class Matrix extends HashMap<String, List<String>> {
 
 	/**
 	 * SERIAL

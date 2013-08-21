@@ -30,6 +30,8 @@ public class PersonItem {
 	}
 	public void setTotal(double total) {
 		this.total = total;
+		
+		totalPlus10 = total + (total * 10 / 100d);
 	}
 
 	public double getTotalPlus10() {

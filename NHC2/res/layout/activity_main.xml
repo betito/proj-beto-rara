@@ -29,7 +29,7 @@
         android:layout_below="@id/main_screen_total_text"
         android:layout_alignLeft="@id/main_screen_total_text"
         android:textColor="@color/white"
-        android:text="@string/total_bill" />
+        android:text="@string/plus_10" />
 
     <TextView
         android:id="@+id/main_screen_plus_10"
