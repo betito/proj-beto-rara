@@ -18,4 +18,7 @@
     
     <string name="merge_item_person_desc_text">Selecione os itens que o(a) jovem %s consumiu:</string>
     
+    <string name="content_adduser">Clique para adicionar uma Pessoa</string>
+    <string name="content_additem">Clique para adicionar um Item</string>
+    
 </resources>

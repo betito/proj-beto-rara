@@ -82,27 +82,31 @@
     	android:gravity="center_horizontal"
     	
         >
-        
-        <Button
-            android:id="@+id/main_screen_add_person_button" 
+
+        <ImageButton
+            android:id="@+id/main_screen_add_person_button"
+            style="?android:attr/buttonBarButtonStyle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            style="?android:attr/buttonBarButtonStyle"
-            android:background="@drawable/add_user"
+            android:src="@drawable/add_user"
             android:gravity="center"
-            
+            android:layout_weight="1"
+            android:contentDescription="@string/content_adduser"
             />
         
-        <Button
+        <ImageButton
             android:id="@+id/main_screen_add_item_button" 
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             style="?android:attr/buttonBarButtonStyle"
-            android:background="@drawable/add_item"
+            android:src="@drawable/add_item"
+            android:layout_weight="1"
             android:layout_gravity="center"
-            
+            android:contentDescription="@string/content_additem"
             
             />
+
+ 
         
     </LinearLayout>
     <!-- end: bottom buttons -->
