@@ -1,8 +1,8 @@
 package apps.br.nhc.controller.activity;
 
-import android.os.Bundle;
 import android.app.Activity;
 import android.content.Context;
+import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.Menu;
@@ -10,10 +10,10 @@ import android.view.View;
 import android.view.ViewGroup;
 import apps.br.nhc.R;
 import apps.br.nhc.controller.NhcBO;
-import apps.br.nhc.controller.activity.subactivity.MergeSubActivity;
 import apps.br.nhc.controller.activity.subactivity.AddItemSubActivity;
 import apps.br.nhc.controller.activity.subactivity.AddPersonSubActivity;
 import apps.br.nhc.controller.activity.subactivity.MainSubActivity;
+import apps.br.nhc.controller.activity.subactivity.MergeSubActivity;
 
 public class MainActivity extends Activity {
 
