@@ -11,6 +11,7 @@ import android.widget.AdapterView.OnItemClickListener;
 import android.widget.ImageButton;
 import android.widget.ListView;
 import android.widget.TextView;
+import android.widget.Toast;
 import apps.br.nhc.R;
 import apps.br.nhc.controller.NhcBO;
 import apps.br.nhc.controller.activity.MainActivity;
@@ -39,9 +40,12 @@ public class MainSubActivity extends SubActivity implements OnClickListener,
 				.findViewById(R.id.main_screen_add_person_button);
 		ImageButton addItemButton = (ImageButton) activity
 				.findViewById(R.id.main_screen_add_item_button);
+		ImageButton checkButton = (ImageButton) activity
+				.findViewById(R.id.main_screen_check_button);
 
 		addPersonButton.setOnClickListener(this);
 		addItemButton.setOnClickListener(this);
+		checkButton.setOnClickListener(this);
 
 		// get list of person
 		List<PersonItem> listPerson = Arrays.asList(NhcBO
@@ -68,6 +72,12 @@ public class MainSubActivity extends SubActivity implements OnClickListener,
 
 		case R.id.main_screen_add_item_button:
 			((MainActivity) activity).openAddItemScreen();
+			break;
+
+		case R.id.main_screen_check_button:
+			Toast.makeText(view.getContext(),
+					"Mostrar lista de itens para setar a quantidade",
+					Toast.LENGTH_SHORT).show();
 			break;
 
 		default:
@@ -104,11 +114,9 @@ public class MainSubActivity extends SubActivity implements OnClickListener,
 	public void updateTotals() {
 
 		txvTotal.setText(" = "
-				+ String.format("%.2f",
-						NhcBO.getInstance().getTotalBill()));
+				+ String.format("%.2f", NhcBO.getInstance().getTotalBill()));
 		txvTotalP10.setText(" = "
-				+ String.format("%.2f",
-						NhcBO.getInstance().getTotalP10()));
+				+ String.format("%.2f", NhcBO.getInstance().getTotalP10()));
 
 	}
 
