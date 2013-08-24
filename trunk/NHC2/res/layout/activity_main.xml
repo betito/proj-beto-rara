@@ -103,6 +103,17 @@
             android:layout_weight="1"
             android:layout_gravity="center"
             android:contentDescription="@string/content_additem"
+            />
+        
+        <ImageButton
+            android:id="@+id/main_screen_check_button" 
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            style="?android:attr/buttonBarButtonStyle"
+            android:src="@drawable/check"
+            android:layout_weight="1"
+            android:layout_gravity="center"
+            android:contentDescription="@string/content_check"
             
             />
 

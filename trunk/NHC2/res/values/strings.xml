@@ -20,5 +20,6 @@
     
     <string name="content_adduser">Clique para adicionar uma Pessoa</string>
     <string name="content_additem">Clique para adicionar um Item</string>
+    <string name="content_check">Fechar a conta e informar a quantidade de itens</string>
     
 </resources>
