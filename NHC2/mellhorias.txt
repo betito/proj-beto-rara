@@ -1,0 +1,9 @@
+melhorias NHC
+
+	:: adicionar pessoa
+		* ao clicar num item da lista, preparar para editar, ou seja, preencher os campos do form
+		  com os dados do item clicado e salvar sobre.
+
+	:: adicionar item
+		* ao clicar num item da lista, preparar para editar, ou seja, preencher os campos do form
+		  com os dados do item clicado e salvar sobre.
