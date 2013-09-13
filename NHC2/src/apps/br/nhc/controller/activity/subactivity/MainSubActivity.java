@@ -11,7 +11,6 @@ import android.widget.AdapterView.OnItemClickListener;
 import android.widget.ImageButton;
 import android.widget.ListView;
 import android.widget.TextView;
-import android.widget.Toast;
 import apps.br.nhc.R;
 import apps.br.nhc.controller.NhcBO;
 import apps.br.nhc.controller.activity.MainActivity;
@@ -75,9 +74,7 @@ public class MainSubActivity extends SubActivity implements OnClickListener,
 			break;
 
 		case R.id.main_screen_check_button:
-			Toast.makeText(view.getContext(),
-					"Mostrar lista de itens para setar a quantidade",
-					Toast.LENGTH_SHORT).show();
+			((MainActivity) activity).openItemQuantityScreen();
 			break;
 
 		default:
