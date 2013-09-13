@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<apps.br.nhc.view.component.RelativeLayoutDialog xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/back_dialog" >
+
+    <Button
+        android:id="@+id/qtt_item_button_cancel"
+        style="?android:attr/buttonStyle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/add_item_edit_qtd"
+        android:text="@string/button_cancel" />
+
+    <Button
+        android:id="@+id/qtt_item_button_save"
+        style="?android:attr/buttonStyle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@id/add_item_button_cancel"
+        android:layout_toRightOf="@id/add_item_button_cancel"
+        android:text="@string/button_save" />
+
+    <ScrollView
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" >
+
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@color/back_dialog_internal"
+            android:padding="@dimen/padding_dialog" >
+
+            <ListView
+                android:id="@+id/qtt_item_list"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentBottom="true"
+                android:layout_margin="@dimen/list_margin"
+                android:background="@color/blue_back_list" />
+        </RelativeLayout>
+    </ScrollView>
+
+</apps.br.nhc.view.component.RelativeLayoutDialog>
