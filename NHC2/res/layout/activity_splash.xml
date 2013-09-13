@@ -1,0 +1,28 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="#009ACE"
+    android:gravity="center" >
+
+
+    <ImageView
+        android:id="@+id/imageView1"
+        android:layout_width="wrap_content"
+        android:layout_height="326dp"
+        android:src="@drawable/nhc_512px_shadowed_no_border"
+         />
+
+    <TextView
+		android:id="@+id/splash_appname"
+        android:layout_marginTop="20dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/app_name"
+        tools:context=".SplashSubActivity"
+        android:textColor="#FFFFFF"
+        android:textSize="36dp"
+        android:gravity="center_horizontal"
+         />
+</LinearLayout>
